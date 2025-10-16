@@ -1,0 +1,282 @@
+Prefix(:=<https://isotc204.org/ontologies/its/time#>)
+Prefix(dc:=<http://purl.org/dc/elements/1.1/>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(code:=<https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#>)
+Prefix(genProp:=<https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/GenericProperties#>)
+Prefix(time:=<http://www.w3.org/2006/time#>)
+Prefix(transportnetwork:=<https://isotc204.org/25965/transport/transportnetwork#>)
+
+
+Ontology(<https://isotc204.org/ontologies/its/time#>
+Import(<http://www.w3.org/2002/07/owl>)
+Import(<http://www.w3.org/2006/time>)
+Import(<https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code>)
+Import(<https://isotc204.org/25965/transport/transportnetwork#>)
+Annotation(dc:title "Ontology for time within ITS")
+Annotation(dc:description "This ontology defines concepts related to time as used within ITS using concepts specified in ISO/IEC 5087-1 and ISO/IEC-5087-2.")
+
+
+Declaration(Class(time:DayOfWeek))
+Declaration(Class(time:Instant))
+Declaration(Class(transportnetwork:ITSPattern))
+Declaration(Class(transportnetwork:ITSThing))
+Declaration(Class(:DaySelector))
+Declaration(Class(:FuzzyTime))
+Declaration(Class(:InstanceOfDayWithinMonth))
+Declaration(Class(:OverallPeriod))
+Declaration(Class(:Period))
+Declaration(Class(:PublicHoliday))
+Declaration(Class(:SpecialDay))
+Declaration(Class(:TimePattern))
+Declaration(Class(:TimePeriodOfDay))
+Declaration(Class(:TimeThing))
+Declaration(Class(:Validity))
+Declaration(Class(code:Code))
+Declaration(ObjectProperty(transportnetwork:ITSObjectProperty))
+Declaration(ObjectProperty(:TimeObjectProperty))
+Declaration(ObjectProperty(:applicableDayOfWeek))
+Declaration(ObjectProperty(:applicableDays))
+Declaration(ObjectProperty(:endTimeOfPeriod))
+Declaration(ObjectProperty(:exceptionPeriod))
+Declaration(ObjectProperty(:publicEvent))
+Declaration(ObjectProperty(:recurringSpecialDay))
+Declaration(ObjectProperty(:recurringTimePeriodOfDay))
+Declaration(ObjectProperty(:routeDestination))
+Declaration(ObjectProperty(:specialDayType))
+Declaration(ObjectProperty(:startTimeOfPeriod))
+Declaration(ObjectProperty(:timeReference))
+Declaration(ObjectProperty(:validPeriod))
+Declaration(ObjectProperty(:validityStatus))
+Declaration(ObjectProperty(:validityTimeSpecification))
+Declaration(DataProperty(transportnetwork:ITSDataProperty))
+Declaration(DataProperty(:TimeDataProperty))
+Declaration(DataProperty(:after))
+Declaration(DataProperty(:applicableDayOfMonth))
+Declaration(DataProperty(:applicableMonth))
+Declaration(DataProperty(:applicableWeekOfMonth))
+Declaration(DataProperty(:date))
+Declaration(DataProperty(:endOfPeriod))
+Declaration(DataProperty(:intersectWithApplicableDays))
+Declaration(ObjectProperty(:offset))
+Declaration(DataProperty(:overallEndTime))
+Declaration(DataProperty(:overallStartTime))
+Declaration(DataProperty(:overrunning))
+Declaration(DataProperty(:predefinedItineraryReference))
+Declaration(DataProperty(:predefinedLocationGroupReference))
+Declaration(DataProperty(:startOfPeriod))
+Declaration(DataProperty(:version))
+Declaration(DataProperty(genProp:hasName))
+Declaration(Datatype(time:Duration))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: :TimeObjectProperty (:TimeObjectProperty)
+
+SubObjectPropertyOf(:TimeObjectProperty transportnetwork:ITSObjectProperty)
+
+# Object Property: :applicableDayOfWeek (:applicableDayOfWeek)
+
+SubObjectPropertyOf(:applicableDayOfWeek :TimeObjectProperty)
+
+# Object Property: :applicableDays (:applicableDays)
+
+SubObjectPropertyOf(:applicableDays :TimeObjectProperty)
+
+# Object Property: :exceptionPeriod (:exceptionPeriod)
+
+SubObjectPropertyOf(:exceptionPeriod :TimeObjectProperty)
+
+# Object Property: :publicEvent (:publicEvent)
+
+SubObjectPropertyOf(:publicEvent :TimeObjectProperty)
+
+# Object Property: :recurringSpecialDay (:recurringSpecialDay)
+
+SubObjectPropertyOf(:recurringSpecialDay :TimeObjectProperty)
+
+# Object Property: :recurringTimePeriodOfDay (:recurringTimePeriodOfDay)
+
+SubObjectPropertyOf(:recurringTimePeriodOfDay :TimeObjectProperty)
+
+# Object Property: :routeDestination (:routeDestination)
+
+SubObjectPropertyOf(:routeDestination :TimeObjectProperty)
+
+# Object Property: :specialDayType (:specialDayType)
+
+SubObjectPropertyOf(:specialDayType :TimeObjectProperty)
+
+# Object Property: :validPeriod (:validPeriod)
+
+SubObjectPropertyOf(:validPeriod :TimeObjectProperty)
+
+# Object Property: :validityStatus (:validityStatus)
+
+SubObjectPropertyOf(:validityStatus :TimeObjectProperty)
+
+# Object Property: :endTimeOfPeriod (:endTimeOfPeriod)
+
+SubObjectPropertyOf(:endTimeOfPeriod :TimeDataProperty)
+
+# Object Property: :startTimeOfPeriod (:startTimeOfPeriod)
+
+SubObjectPropertyOf(:startTimeOfPeriod :TimeDataProperty)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: :TimeDataProperty (:TimeDataProperty)
+
+SubDataPropertyOf(:TimeDataProperty transportnetwork:ITSDataProperty)
+
+# Data Property: :applicableDayOfMonth (:applicableDayOfMonth)
+
+SubDataPropertyOf(:applicableDayOfMonth :TimeDataProperty)
+
+# Data Property: :applicableMonth (:applicableMonth)
+
+SubDataPropertyOf(:applicableMonth :TimeDataProperty)
+
+# Data Property: :applicableWeekOfMonth (:applicableWeekOfMonth)
+
+SubDataPropertyOf(:applicableWeekOfMonth :TimeDataProperty)
+
+# Data Property: :endOfPeriod (:endOfPeriod)
+
+SubDataPropertyOf(:endOfPeriod :TimeDataProperty)
+
+# Data Property: :intersectWithApplicableDays (:intersectWithApplicableDays)
+
+SubDataPropertyOf(:intersectWithApplicableDays :TimeDataProperty)
+
+# Data Property: :overallEndTime (:overallEndTime)
+
+SubDataPropertyOf(:overallEndTime :TimeDataProperty)
+
+# Data Property: :overallStartTime (:overallStartTime)
+
+SubDataPropertyOf(:overallStartTime :TimeDataProperty)
+
+# Data Property: :overrunning (:overrunning)
+
+SubDataPropertyOf(:overrunning :TimeDataProperty)
+
+# Data Property: :startOfPeriod (:startOfPeriod)
+
+SubDataPropertyOf(:startOfPeriod :TimeDataProperty)
+
+
+############################
+#   Classes
+############################
+
+# Class: :DaySelector (:DaySelector)
+
+AnnotationAssertion(xsd:pattern :DaySelector "TimePattern")
+SubClassOf(:DaySelector :TimeThing)
+SubClassOf(:DaySelector ObjectAllValuesFrom(:applicableDayOfWeek time:DayOfWeek))
+SubClassOf(:DaySelector ObjectMaxCardinality(6 :applicableDayOfWeek time:DayOfWeek))
+SubClassOf(:DaySelector DataAllValuesFrom(:applicableDayOfMonth xsd:gDay))
+SubClassOf(:DaySelector DataAllValuesFrom(:applicableMonth xsd:gMonth))
+SubClassOf(:DaySelector DataMaxCardinality(30 :applicableDayOfMonth xsd:gDay))
+SubClassOf(:DaySelector DataMaxCardinality(11 :applicableMonth xsd:gMonth))
+
+# Class: :FuzzyTime (:FuzzyTime)
+
+AnnotationAssertion(dc:description :FuzzyTime "An instant in time designated by a timeReference event cuopled with a defined offset either before or after the referenced event. Possible codes can include \\\"dawn\\\", \\\"dusk\\\", \\\"start of rain\\\", \\\"start of school\\\", etc. The offset indicates the amount of units of time from this event either before (after = false) or after (after = true) an event meeting the indicated designation. The website can provide additional details about the occurance of the event (e.g., a schedule for the school sessions).")
+AnnotationAssertion(xsd:pattern :FuzzyTime "TimePattern")
+SubClassOf(:FuzzyTime :TimeThing)
+SubClassOf(:FuzzyTime ObjectAllValuesFrom(:offset time:Duration))
+SubClassOf(:FuzzyTime ObjectAllValuesFrom(:timeReference code:Code))
+SubClassOf(:FuzzyTime ObjectExactCardinality(1 :offset time:Duration))
+SubClassOf(:FuzzyTime ObjectExactCardinality(1 :timeReference code:Code))
+SubClassOf(:FuzzyTime DataAllValuesFrom(:after xsd:boolean))
+SubClassOf(:FuzzyTime DataExactCardinality(1 :after xsd:boolean))
+
+# Class: :InstanceOfDayWithinMonth (:InstanceOfDayWithinMonth)
+
+AnnotationAssertion(xsd:pattern :InstanceOfDayWithinMonth "TimePattern")
+SubClassOf(:InstanceOfDayWithinMonth :TimeThing)
+
+# Class: :OverallPeriod (:OverallPeriod)
+
+AnnotationAssertion(xsd:pattern :OverallPeriod "TimePattern")
+SubClassOf(:OverallPeriod :TimeThing)
+SubClassOf(:OverallPeriod ObjectAllValuesFrom(:exceptionPeriod :Period))
+SubClassOf(:OverallPeriod ObjectAllValuesFrom(:validPeriod :Period))
+SubClassOf(:OverallPeriod DataAllValuesFrom(:overallEndTime xsd:dateTime))
+SubClassOf(:OverallPeriod DataAllValuesFrom(:overallStartTime xsd:dateTime))
+SubClassOf(:OverallPeriod DataExactCardinality(1 :overallStartTime xsd:dateTime))
+SubClassOf(:OverallPeriod DataMaxCardinality(1 :overallEndTime xsd:dateTime))
+
+# Class: :Period (:Period)
+
+AnnotationAssertion(xsd:pattern :Period "TimePattern")
+SubClassOf(:Period :TimeThing)
+SubClassOf(:Period ObjectAllValuesFrom(:applicableDays :DaySelector))
+SubClassOf(:Period ObjectAllValuesFrom(:recurringSpecialDay :SpecialDay))
+SubClassOf(:Period ObjectAllValuesFrom(:recurringTimePeriodOfDay :TimePeriodOfDay))
+SubClassOf(:Period DataAllValuesFrom(:endOfPeriod xsd:dateTime))
+SubClassOf(:Period DataAllValuesFrom(:startOfPeriod xsd:dateTime))
+SubClassOf(:Period DataAllValuesFrom(genProp:hasName xsd:string))
+SubClassOf(:Period DataMaxCardinality(1 :endOfPeriod xsd:dateTime))
+SubClassOf(:Period DataMaxCardinality(1 :startOfPeriod xsd:dateTime))
+SubClassOf(:Period DataMaxCardinality(1 genProp:hasName xsd:string))
+
+# Class: :PublicHoliday (:PublicHoliday)
+
+AnnotationAssertion(xsd:pattern :PublicHoliday "TimePattern")
+SubClassOf(:PublicHoliday :SpecialDay)
+SubClassOf(:PublicHoliday DataAllValuesFrom(genProp:hasName xsd:string))
+SubClassOf(:PublicHoliday DataExactCardinality(1 genProp:hasName xsd:string))
+
+# Class: :SpecialDay (:SpecialDay)
+
+AnnotationAssertion(xsd:pattern :SpecialDay "TimePattern")
+SubClassOf(:SpecialDay :TimeThing)
+SubClassOf(:SpecialDay ObjectAllValuesFrom(:publicEvent code:Code))
+SubClassOf(:SpecialDay ObjectAllValuesFrom(:specialDayType code:Code))
+SubClassOf(:SpecialDay ObjectExactCardinality(1 :specialDayType code:Code))
+SubClassOf(:SpecialDay ObjectMaxCardinality(1 :publicEvent code:Code))
+SubClassOf(:SpecialDay DataAllValuesFrom(:intersectWithApplicableDays xsd:boolean))
+SubClassOf(:SpecialDay DataExactCardinality(1 :intersectWithApplicableDays xsd:boolean))
+
+# Class: :TimePattern (:TimePattern)
+
+SubClassOf(:TimePattern transportnetwork:ITSPattern)
+
+# Class: :TimePeriodOfDay (:TimePeriodOfDay)
+
+AnnotationAssertion(xsd:pattern :TimePeriodOfDay "TimePattern")
+SubClassOf(:TimePeriodOfDay :TimeThing)
+SubClassOf(:TimePeriodOfDay ObjectAllValuesFrom(:endTimeOfPeriod ObjectUnionOf(time:Instant :FuzzyTime)))
+SubClassOf(:TimePeriodOfDay ObjectAllValuesFrom(:startTimeOfPeriod ObjectUnionOf(time:Instant :FuzzyTime)))
+SubClassOf(:TimePeriodOfDay ObjectExactCardinality(1 :endTimeOfPeriod ObjectUnionOf(time:Instant :FuzzyTime)))
+SubClassOf(:TimePeriodOfDay ObjectExactCardinality(1 :startTimeOfPeriod ObjectUnionOf(time:Instant :FuzzyTime)))
+
+# Class: :TimeThing (:TimeThing)
+
+AnnotationAssertion(xsd:pattern :TimeThing "TimePattern")
+SubClassOf(:TimeThing transportnetwork:ITSThing)
+
+# Class: :Validity (:Validity)
+
+AnnotationAssertion(xsd:pattern :Validity "TimePattern")
+SubClassOf(:Validity :TimeThing)
+SubClassOf(:Validity ObjectAllValuesFrom(:validityStatus code:Code))
+SubClassOf(:Validity ObjectAllValuesFrom(:validityTimeSpecification :OverallPeriod))
+SubClassOf(:Validity ObjectExactCardinality(1 :validityStatus code:Code))
+SubClassOf(:Validity ObjectExactCardinality(1 :validityTimeSpecification :OverallPeriod))
+SubClassOf(:Validity DataAllValuesFrom(:overrunning xsd:boolean))
+SubClassOf(:Validity DataMaxCardinality(1 :overrunning xsd:boolean))
+
+
+)
