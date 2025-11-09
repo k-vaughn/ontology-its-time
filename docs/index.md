@@ -4,6 +4,10 @@ This ontology defines concepts related to time as used within ITS using concepts
 
 This ontology consists of the following patterns:
 
-- [Time Pattern](classes/TimePattern.md)
+- [Time Pattern (itsTime)](classes/itsTime__TimePattern.md)
 
-The formal definition of these patterns is available in [OFN Syntax](itsTime.ofn).
+The ontology also contains the following classes that are not assigned to any pattern:
+
+- [Time Pattern (itsTime)](classes/itsTime__TimePattern.md)
+
+The formal definition of these patterns is available in [TTL Syntax](itsTime.ttl).

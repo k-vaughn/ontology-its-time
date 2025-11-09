@@ -4,17 +4,17 @@ site_description: A registry for documenting the ontology of time concepts for u
 repo_url: https://github.com/k-vaughn/ontology-its-time
 nav:
 - Home: index.md
-- Time Pattern:
-  - Day Selector: classes/DaySelector.md
-  - Fuzzy Time: classes/FuzzyTime.md
-  - Instance Of Day Within Month: classes/InstanceOfDayWithinMonth.md
-  - Overall Period: classes/OverallPeriod.md
-  - Period: classes/Period.md
-  - Public Holiday: classes/PublicHoliday.md
-  - Special Day: classes/SpecialDay.md
-  - Time Period Of Day: classes/TimePeriodOfDay.md
-  - Time Thing: classes/TimeThing.md
-  - Validity: classes/Validity.md
+- Time Pattern (itsTime):
+  - Day Selector: classes/itsTime__DaySelector.md
+  - Fuzzy Time: classes/itsTime__FuzzyTime.md
+  - Instance Of Day Within Month: classes/itsTime__InstanceOfDayWithinMonth.md
+  - Overall Period: classes/itsTime__OverallPeriod.md
+  - Period: classes/itsTime__Period.md
+  - Public Holiday: classes/itsTime__PublicHoliday.md
+  - Special Day: classes/itsTime__SpecialDay.md
+  - Time Period Of Day: classes/itsTime__TimePeriodOfDay.md
+  - Time Thing: classes/itsTime__TimeThing.md
+  - Validity: classes/itsTime__Validity.md
 site_url: https://github.com/k-vaughn/ontology-its-time
 copyright: <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
   <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank"
