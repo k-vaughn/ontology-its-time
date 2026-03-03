@@ -1,21 +1,21 @@
-@prefix : <https://isotc204.org/ontologies/its/time#> .
+@prefix : <https://w3id.org/itsdata/time/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix code: <https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#> .
+@prefix cdm1: <https://w3id.org/citydata/part1/> .
+@prefix cdm2: <https://w3id.org/citydata/part2/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix time: <http://www.w3.org/2006/time#> .
-@prefix genProp: <https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/GenericProperties#> .
-@prefix transportnetwork: <https://isotc204.org/25965/transport/transportnetwork#> .
+@prefix its-core: <https://w3id.org/itsdata/core/> .
 @base <https://isotc204.org/ontologies/its/time#> .
 
-<https://isotc204.org/ontologies/its/time#> rdf:type owl:Ontology ;
+<https://w3id.org/itsdata/time/> rdf:type owl:Ontology ;
                                              owl:imports <http://www.w3.org/2002/07/owl> ,
                                                          <http://www.w3.org/2006/time> ,
-                                                         transportnetwork: ,
-                                                         <https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code> ;
+                                                         its-core: ,
+                                                         cdm2: ;
                                              dc:description "This ontology defines concepts related to time as used within ITS using concepts specified in ISO/IEC 5087-1 and ISO/IEC-5087-2." ;
                                              dc:title "Ontology for time within ITS" .
 
@@ -40,12 +40,12 @@ time:Duration rdf:type rdfs:Datatype .
 #################################################################
 
 ###  https://isotc204.org/25965/transport/transportnetwork#ITSObjectProperty
-transportnetwork:ITSObjectProperty rdf:type owl:ObjectProperty .
+its-core:ITSObjectProperty rdf:type owl:ObjectProperty .
 
 
 ###  https://isotc204.org/ontologies/its/time#TimeObjectProperty
 :TimeObjectProperty rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf transportnetwork:ITSObjectProperty .
+                    rdfs:subPropertyOf its-core:ITSObjectProperty .
 
 
 ###  https://isotc204.org/ontologies/its/time#applicableDayOfWeek
@@ -125,12 +125,12 @@ transportnetwork:ITSObjectProperty rdf:type owl:ObjectProperty .
 #################################################################
 
 ###  https://isotc204.org/25965/transport/transportnetwork#ITSDataProperty
-transportnetwork:ITSDataProperty rdf:type owl:DatatypeProperty .
+its-core:ITSDataProperty rdf:type owl:DatatypeProperty .
 
 
 ###  https://isotc204.org/ontologies/its/time#TimeDataProperty
 :TimeDataProperty rdf:type owl:DatatypeProperty ;
-                  rdfs:subPropertyOf transportnetwork:ITSDataProperty .
+                  rdfs:subPropertyOf its-core:ITSDataProperty .
 
 
 ###  https://isotc204.org/ontologies/its/time#after
@@ -199,7 +199,7 @@ transportnetwork:ITSDataProperty rdf:type owl:DatatypeProperty .
 
 
 ###  https://standards.iso.org/iso-iec/5087/-1/ed-1/en/ontology/GenericProperties#hasName
-genProp:hasName rdf:type owl:DatatypeProperty .
+cdm1:hasName rdf:type owl:DatatypeProperty .
 
 
 #################################################################
@@ -215,11 +215,11 @@ time:Instant rdf:type owl:Class .
 
 
 ###  https://isotc204.org/25965/transport/transportnetwork#ITSPattern
-transportnetwork:ITSPattern rdf:type owl:Class .
+its-core:ITSPattern rdf:type owl:Class .
 
 
 ###  https://isotc204.org/25965/transport/transportnetwork#ITSThing
-transportnetwork:ITSThing rdf:type owl:Class .
+its-core:ITSThing rdf:type owl:Class .
 
 
 ###  https://isotc204.org/ontologies/its/time#DaySelector
@@ -264,7 +264,7 @@ transportnetwork:ITSThing rdf:type owl:Class .
                            ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :timeReference ;
-                             owl:allValuesFrom code:Code
+                             owl:allValuesFrom cdm2:Code
                            ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :offset ;
@@ -274,7 +274,7 @@ transportnetwork:ITSThing rdf:type owl:Class .
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :timeReference ;
                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onClass code:Code
+                             owl:onClass cdm2:Code
                            ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :after ;
@@ -351,7 +351,7 @@ transportnetwork:ITSThing rdf:type owl:Class .
                           owl:allValuesFrom xsd:dateTime
                         ] ,
                         [ rdf:type owl:Restriction ;
-                          owl:onProperty genProp:hasName ;
+                          owl:onProperty cdm1:hasName ;
                           owl:allValuesFrom xsd:string
                         ] ,
                         [ rdf:type owl:Restriction ;
@@ -365,7 +365,7 @@ transportnetwork:ITSThing rdf:type owl:Class .
                           owl:onDataRange xsd:dateTime
                         ] ,
                         [ rdf:type owl:Restriction ;
-                          owl:onProperty genProp:hasName ;
+                          owl:onProperty cdm1:hasName ;
                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                           owl:onDataRange xsd:string
                         ] ;
@@ -376,11 +376,11 @@ transportnetwork:ITSThing rdf:type owl:Class .
 :PublicHoliday rdf:type owl:Class ;
                rdfs:subClassOf :SpecialDay ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty genProp:hasName ;
+                                 owl:onProperty cdm1:hasName ;
                                  owl:allValuesFrom xsd:string
                                ] ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty genProp:hasName ;
+                                 owl:onProperty cdm1:hasName ;
                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                  owl:onDataRange xsd:string
                                ] ;
@@ -392,21 +392,21 @@ transportnetwork:ITSThing rdf:type owl:Class .
             rdfs:subClassOf :TimeThing ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :publicEvent ;
-                              owl:allValuesFrom code:Code
+                              owl:allValuesFrom cdm2:Code
                             ] ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :specialDayType ;
-                              owl:allValuesFrom code:Code
+                              owl:allValuesFrom cdm2:Code
                             ] ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :specialDayType ;
                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                              owl:onClass code:Code
+                              owl:onClass cdm2:Code
                             ] ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :publicEvent ;
                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                              owl:onClass code:Code
+                              owl:onClass cdm2:Code
                             ] ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :intersectWithApplicableDays ;
@@ -422,7 +422,7 @@ transportnetwork:ITSThing rdf:type owl:Class .
 
 ###  https://isotc204.org/ontologies/its/time#TimePattern
 :TimePattern rdf:type owl:Class ;
-             rdfs:subClassOf transportnetwork:ITSPattern .
+             rdfs:subClassOf its-core:ITSPattern .
 
 
 ###  https://isotc204.org/ontologies/its/time#TimePeriodOfDay
@@ -467,7 +467,7 @@ transportnetwork:ITSThing rdf:type owl:Class .
 
 ###  https://isotc204.org/ontologies/its/time#TimeThing
 :TimeThing rdf:type owl:Class ;
-           rdfs:subClassOf transportnetwork:ITSThing ;
+           rdfs:subClassOf its-core:ITSThing ;
            xsd:pattern "TimePattern" .
 
 
@@ -476,7 +476,7 @@ transportnetwork:ITSThing rdf:type owl:Class .
           rdfs:subClassOf :TimeThing ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty :validityStatus ;
-                            owl:allValuesFrom code:Code
+                            owl:allValuesFrom cdm2:Code
                           ] ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty :validityTimeSpecification ;
@@ -485,7 +485,7 @@ transportnetwork:ITSThing rdf:type owl:Class .
                           [ rdf:type owl:Restriction ;
                             owl:onProperty :validityStatus ;
                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onClass code:Code
+                            owl:onClass cdm2:Code
                           ] ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty :validityTimeSpecification ;
@@ -505,7 +505,7 @@ transportnetwork:ITSThing rdf:type owl:Class .
 
 
 ###  https://standards.iso.org/iso-iec/5087/-2/ed-1/en/ontology/Code#Code
-code:Code rdf:type owl:Class .
+cdm2:Code rdf:type owl:Class .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
