@@ -1,0 +1,21 @@
+// Diagram for ClockTime
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=source
+		time_GeneralDateTimeDescription [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:GeneralDateTimeDescription</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/GeneralDateTimeDescription" margin=0]
+		TimeOfDay [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">TimeOfDay</TD></TR></TABLE>> URL="../TimeOfDay" margin=0]
+	}
+	ClockTime [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ClockTime</TD></TR><TR><TD ALIGN="LEFT">time:day [0..0]</TD></TR><TR><TD ALIGN="LEFT">time:dayOfWeek [0..0]</TD></TR><TR><TD ALIGN="LEFT">time:dayOfYear [0..0]</TD></TR><TR><TD ALIGN="LEFT">time:hour [1]</TD></TR><TR><TD ALIGN="LEFT">time:minute [0..1]</TD></TR><TR><TD ALIGN="LEFT">time:month [0..0]</TD></TR><TR><TD ALIGN="LEFT">time:monthOfYear [0..0]</TD></TR><TR><TD ALIGN="LEFT">time:second [0..1]</TD></TR><TR><TD ALIGN="LEFT">time:timeZone [0..1]</TD></TR><TR><TD ALIGN="LEFT">time:unitType [0..1]</TD></TR><TR><TD ALIGN="LEFT">time:week [0..0]</TD></TR><TR><TD ALIGN="LEFT">time:year [0..0]</TD></TR></TABLE>> URL="../ClockTime" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+	}
+	ClockTime -> time_GeneralDateTimeDescription [arrowhead=onormal style=solid]
+	ClockTime -> TimeOfDay [arrowhead=onormal style=solid]
+}

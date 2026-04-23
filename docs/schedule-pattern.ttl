@@ -1,0 +1,291 @@
+BASE   <https://w3id.org/itsdata/time/v1/>
+PREFIX : <https://w3id.org/itsdata/time/v1/>
+PREFIX dash: <http://datashapes.org/dash#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <http://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX cdm2: <https://w3id.org/citydata/part2/v1/>
+PREFIX its-core: <https://w3id.org/itsdata/core/v1/>
+
+:SchedulePattern a owl:Ontology;
+    # Ontology metadata
+    dcterms:title                  "Time Ontology for ITS - Schedule Pattern"@en;
+    skos:definition                "This ontology defines concepts related to schedules for temporal validity in traffic and transport situations. This pattern is one module of the Time Ontology for ITS."@en;
+    vann:preferredNamespaceUri     "https://w3id.org/itsdata/time/v1/";
+    vann:preferredNamespacePrefix  "its-time";
+    dcterms:license                "http://creativecommons.org/licenses/by/4.0/";
+    its-core:draft                 "true";
+    
+    #Provenance metadata
+    dcterms:creator                "Kenneth Vaughn";
+    dcterms:created                "Draft";
+    dcterms:modified               "2026-04-23"^^xsd:date;
+    
+    # Imports
+    owl:imports                    :FuzzyTimePattern .
+    # which includes the following cascade of imports:
+    #   Core (its-time)
+    #     CityPattern
+    #       LandUsePattern
+    #         CodePattern
+    #           Core(cdm2)
+    #           OrganizationStructurePattern
+    #               AgentPattern
+    #                    GenericPropertiesPattern
+    #                    ResourcePattern
+    #                        ActivityPattern
+    #                            ChangePattern
+    #                            SpatialLocPattern
+    #                                MereologyPattern
+    #                        CityUnitsPattern
+    #                             ISO21972
+    #                             Core (cdm1)
+    #                                 Time (W3C)        
+
+####################################
+# Object Properties
+####################################
+
+:ScheduleObjectProperty
+ a owl:ObjectProperty;
+        skos:definition         "An object property to organize all object properties defined in the ITS Schedule Pattern."@en;
+        rdfs:subPropertyOf      :TimeObjectProperty .
+
+:applicableArea a owl:ObjectProperty;
+        rdfs:subPropertyOf      :ScheduleObjectProperty;
+        skos:definition         "Specifies an area associated with a SpecialDay."@en;
+        schema:domainIncludes   :SpecialDay;
+        schema:rangeIncludes              cdm2:NamedArea .
+
+:applicableDayOfWeek a owl:ObjectProperty;
+        rdfs:subPropertyOf      :ScheduleObjectProperty;
+        skos:definition         "Specifies a day of the week during which the DayWeekMonth object is applicable."@en;
+        schema:domainIncludes   :DayWeekMonth;
+        schema:rangeIncludes              time:DayOfWeek .
+
+:applicableMonth a owl:ObjectProperty;
+        rdfs:subPropertyOf      :ScheduleObjectProperty;
+        skos:definition         "Specifies a month during which the DayWeekMonth object is applicable."@en;
+        schema:domainIncludes   :DayWeekMonth;
+        schema:rangeIncludes              time:MonthOfYear .
+
+:applicableWeek a owl:ObjectProperty;
+        rdfs:subPropertyOf      :ScheduleObjectProperty;
+        skos:definition         "Specifies a week within a month during which the CalendarWeekWithinMonth object is applicable."@en;
+        schema:domainIncludes   :CalendarWeekWithinMonth;
+        schema:rangeIncludes              :WeekCode .
+
+:dailyEndTime a owl:ObjectProperty;
+        rdfs:subPropertyOf      :ScheduleObjectProperty;
+        skos:definition         "Time of day at which the recurring pattern ends."@en;
+        schema:domainIncludes   :TimePeriodOfDay;
+        schema:rangeIncludes              :TimeOfDay .
+
+:dailyStartTime a owl:ObjectProperty;
+        rdfs:subPropertyOf      :ScheduleObjectProperty;
+        skos:definition         "Time of day at which the recurring pattern starts."@en;
+        schema:domainIncludes   :TimePeriodOfDay;
+        schema:rangeIncludes              :TimeOfDay .
+
+:exceptionPeriod a owl:ObjectProperty;
+        rdfs:subPropertyOf      :ScheduleObjectProperty;
+        skos:definition         "A period completely or partially within the overall period during which the schedule does not apply. An exceptionPeriod overrules any validPeriod definition."@en;
+        schema:domainIncludes   :OverallPeriod;
+        schema:rangeIncludes              :Period .
+
+:hasPublicEventType a owl:ObjectProperty;
+        rdfs:subPropertyOf      :ScheduleObjectProperty;
+        skos:definition         "Indication of the type of public event."@en;
+        schema:domainIncludes   :SpecialDay;
+        schema:rangeIncludes              :PublicEventCode .
+
+:hasRecurringDayWeekMonthPeriod
+ a owl:ObjectProperty;
+        rdfs:subPropertyOf      :ScheduleObjectProperty;
+        skos:definition         "A recurring period specified by the intersection of day-of-week, week, and month parameters."@en;
+        schema:domainIncludes   :Period;
+        schema:rangeIncludes              :DayWeekMonth .
+
+:hasRecurringSpecialDay a owl:ObjectProperty;
+        rdfs:subPropertyOf      :ScheduleObjectProperty;
+        skos:definition         "A recurring special day specified by a day type."@en;
+        skos:example            "public holiday";
+        schema:domainIncludes   :Period;
+        schema:rangeIncludes              :SpecialDay .
+
+:hasRecurringTimePeriodOfDay
+ a owl:ObjectProperty;
+        rdfs:subPropertyOf      :ScheduleObjectProperty;
+        skos:definition         "Specification of a applicable time period that starts on applicable days. If the time period spans midnight (i.e. the end time is earlier than the start time), the applicability of the period will extend to the end time on the following day, even if that day is not normally applicable."@en;
+        schema:domainIncludes   :Period;
+        schema:rangeIncludes              :TimePeriodOfDay .
+
+:hasSpecialDayType a owl:ObjectProperty;
+        rdfs:subPropertyOf      :ScheduleObjectProperty;
+        skos:definition         "The type of special day."@en;
+        schema:domainIncludes   :Period;
+        schema:rangeIncludes              :SpecialDayTypeCode .
+
+:hasValidityStatus a owl:ObjectProperty;
+        rdfs:subPropertyOf      :ScheduleObjectProperty;
+        skos:definition         "Specifies the validity status of the schedule's logic."@en;
+        schema:domainIncludes   :Schedule;
+        schema:rangeIncludes              :ValidityStatusCode;
+        skos:editorsNote        "Changed from DATEX II validityStatus" .
+
+:validityTimeSpecification a owl:ObjectProperty;
+        rdfs:subPropertyOf      :ScheduleObjectProperty;
+        skos:definition         "The overall container of rules that define the periods when the scheduling logic evaluates to true."@en;
+        schema:domainIncludes   :Schedule;
+        schema:rangeIncludes              :OverallPeriod .
+
+:validPeriod a owl:ObjectProperty;
+        rdfs:subPropertyOf      :ScheduleObjectProperty;
+        skos:definition         "A period completely or partially within the overall period during which the schedule applies. A validPeriod can be overruled by an exceptionPeriod and the overall start and end of the overall period."@en;
+        schema:domainIncludes   :OverallPeriod;
+        schema:rangeIncludes              :Period .
+
+####################################
+# Data Properties
+####################################
+
+:ScheduleDataProperty a owl:DatatypeProperty;
+        skos:definition         "A data property to organize all data properties defined in the Schedule Pattern."@en;
+        rdfs:subPropertyOf      :TimeDataProperty .
+
+:applicableInstanceOfDayWithinMonth a owl:DatatypeProperty;
+        rdfs:subPropertyOf      :ScheduleDataProperty;
+        skos:definition         "Specifies an instance of a day within a month during which the InstanceOfDayWithinMonth object is applicable."@en;
+        skos:example            "The 2nd Tuesday of the month would be represented as applicableDayOfWeek = Tuesday and applicableInstanceOfDayWithinMonth = 2.";
+        schema:domainIncludes   :InstanceOfDayWithinMonth;
+        schema:rangeIncludes              xsd:nonNegativeInteger .
+
+:endOfPeriod a owl:DatatypeProperty;
+        rdfs:subPropertyOf      :ScheduleDataProperty;
+        skos:definition         "The end time of the period."@en;
+        schema:domainIncludes   :Period;
+        schema:rangeIncludes              xsd:dateTime .
+
+:intersectWithApplicableDays a owl:DatatypeProperty;
+        rdfs:subPropertyOf      :ScheduleDataProperty;
+        skos:definition         "If true, the period is the intersection of the special day with applicable days. If false, the period is the union of the special day with applicable days."@en;
+        schema:domainIncludes   :SpecialDay;
+        schema:rangeIncludes              xsd:boolean .
+
+:isOverrunning a owl:DatatypeProperty;
+        rdfs:subPropertyOf      :ScheduleDataProperty;
+        skos:definition         "Indicates if the schedule is exceeding its expected duration."@en;
+        schema:domainIncludes   :Schedule;
+        schema:rangeIncludes              xsd:boolean .
+
+:overallEndTime a owl:DatatypeProperty;
+        rdfs:subPropertyOf      :ScheduleDataProperty;
+        skos:definition         "The end time of the overall period."@en;
+        schema:domainIncludes   :OverallPeriod;
+        schema:rangeIncludes              xsd:dateTime .
+
+:overallStartTime a owl:DatatypeProperty;
+        rdfs:subPropertyOf      :ScheduleDataProperty;
+        skos:definition         "The start time of the overall period."@en;
+        schema:domainIncludes   :OverallPeriod;
+        schema:rangeIncludes              xsd:dateTime .
+
+:reverseInstance a owl:DatatypeProperty;
+        rdfs:subPropertyOf      :ScheduleDataProperty;
+        skos:definition         "If true, the instance of day/week within the month is counted from the end of the month."@en;
+        schema:domainIncludes   :InstanceOfDayWithinMonth;
+        schema:domainIncludes   :CalendarWeekWithinMonth;
+        schema:rangeIncludes              xsd:boolean;
+        skos:editorsNote        "Added capability compared to from DATEX II validityStatus" .
+
+:startOfPeriod a owl:DatatypeProperty;
+        rdfs:subPropertyOf      :ScheduleDataProperty;
+        skos:definition         "The start time of the period."@en;
+        schema:domainIncludes   :Period;
+        schema:rangeIncludes              xsd:dateTime .
+
+
+####################################
+# Classes
+####################################
+
+:ScheduleThing a owl:Class;
+        skos:definition  "Added for organizational purposes, to identify classes defined in the Schedule Pattern for ITS."@en;
+        rdfs:subClassOf  :TimeThing .
+
+:CalendarWeekWithinMonth
+ a owl:Class;
+        skos:definition  "Specification of recurring periods in terms of the calendar week(s) of the month."@en;
+        skos:note        "Different codes can potentially have different definitions on whether partial weeks are counted and the day of week on which a new week starts.";
+        rdfs:subClassOf  :ScheduleThing .
+
+:DateWithinMonth a owl:Class;
+        skos:definition  "Recurring periods by the nth day in a month."@en;
+        rdfs:subClassOf  :DayWeekMonth .
+
+:DayWeekMonth a owl:Class;
+        skos:definition  "Specification of recurring periods based on applicable days of week and months."@en;
+        rdfs:subClassOf  :ScheduleThing ;
+        dash:abstract true .
+
+:InstanceOfDayWithinMonth
+ a owl:Class;
+        rdfs:subClassOf  :DayWeekMonth;
+        skos:definition  "Recurring periods by the nth occurrence of a weekday in a month."@en .
+
+:OverallPeriod a owl:Class;
+        skos:definition  "The bounding start and end times of the validity period."@en;
+        rdfs:subClassOf  :ScheduleThing .
+
+:Period a owl:Class;
+        skos:definition  "A single valid or invalid period, or a set of repeating periods."@en ;
+        rdfs:subClassOf  :ScheduleThing .
+
+:PublicHoliday a owl:Class;
+        skos:definition  "A specialization representing named public holidays."@en;
+        rdfs:subClassOf  :SpecialDay .
+
+:Schedule a owl:Class;
+        skos:definition  "The class defining the temporal validity of a situation element or its impact."@en;
+        rdfs:subClassOf  :ScheduleThing .
+
+:SpecialDay a owl:Class;
+        skos:definition  "Recurring periods based on special days, including public holidays."@en;
+        rdfs:subClassOf  :ScheduleThing .
+
+:TimePeriodOfDay a owl:Class;
+        skos:definition  "Recurring periods within a single day using start and end times."@en;
+        rdfs:subClassOf  :ScheduleThing .
+
+####################################
+# Codes
+####################################
+
+:PublicEventCode a owl:Class;
+        skos:definition  "Code that provides for an identification of public event types."@en;
+        skos:example     "airShow, concert, parade";
+        rdfs:subClassOf  :ScheduleThing;
+        rdfs:subClassOf  cdm2:Code .
+
+:SpecialDayTypeCode a owl:Class;
+        skos:definition  "Code that provides for an identification of special day types."@en;
+        skos:example     "publicHoliday, longWeekendDay, schoolDay";
+        rdfs:subClassOf  :ScheduleThing;
+        rdfs:subClassOf  cdm2:Code .
+
+:ValidityStatusCode a owl:Class;
+        skos:definition  "Code for validity status."@en;
+        skos:example     "active (override to true), planned, suspended (override to false), determinedBySchedule";
+        rdfs:subClassOf  :ScheduleThing;
+        rdfs:subClassOf  cdm2:Code .
+
+:WeekCode a owl:Class;
+        skos:definition  "Code that provides for a unique identification for weeks within a month."@en;
+        skos:example     "week1, week2, week3, and week4";
+        rdfs:subClassOf  :ScheduleThing;
+        rdfs:subClassOf  cdm2:Code .

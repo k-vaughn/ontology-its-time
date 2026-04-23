@@ -4,17 +4,32 @@ site_description: A registry for documenting the ontology of time concepts for u
 repo_url: https://github.com/k-vaughn/ontology-its-time
 nav:
 - Home: index.md
-- Time Pattern (itsTime):
-  - Day Selector: classes/itsTime__DaySelector.md
-  - Fuzzy Time: classes/itsTime__FuzzyTime.md
-  - Instance Of Day Within Month: classes/itsTime__InstanceOfDayWithinMonth.md
-  - Overall Period: classes/itsTime__OverallPeriod.md
-  - Period: classes/itsTime__Period.md
-  - Public Holiday: classes/itsTime__PublicHoliday.md
-  - Special Day: classes/itsTime__SpecialDay.md
-  - Time Period Of Day: classes/itsTime__TimePeriodOfDay.md
-  - Time Thing: classes/itsTime__TimeThing.md
-  - Validity: classes/itsTime__Validity.md
+- its-time:core:
+  - its-time:core: core.md
+  - Time Thing: TimeThing.md
+- Fuzzy Time Pattern:
+  - Fuzzy Time Pattern: fuzzy-time-pattern.md
+  - Clock Time: ClockTime.md
+  - Fuzzy Time: FuzzyTime.md
+  - Fuzzy Time Code: FuzzyTimeCode.md
+  - Time Of Day: TimeOfDay.md
+- Schedule Pattern:
+  - Schedule Pattern: schedule-pattern.md
+  - Calendar Week Within Month: CalendarWeekWithinMonth.md
+  - Date Within Month: DateWithinMonth.md
+  - Day Week Month: DayWeekMonth.md
+  - Instance Of Day Within Month: InstanceOfDayWithinMonth.md
+  - Overall Period: OverallPeriod.md
+  - Period: Period.md
+  - Public Event Code: PublicEventCode.md
+  - Public Holiday: PublicHoliday.md
+  - Schedule: Schedule.md
+  - Schedule Thing: ScheduleThing.md
+  - Special Day: SpecialDay.md
+  - Special Day Type Code: SpecialDayTypeCode.md
+  - Time Period Of Day: TimePeriodOfDay.md
+  - Validity Status Code: ValidityStatusCode.md
+  - Week Code: WeekCode.md
 site_url: https://github.com/k-vaughn/ontology-its-time
 copyright: <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
   <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank"

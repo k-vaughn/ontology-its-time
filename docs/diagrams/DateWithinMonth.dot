@@ -1,0 +1,19 @@
+// Diagram for DateWithinMonth
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=source
+		DayWeekMonth [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">DayWeekMonth</TD></TR></TABLE>> URL="../DayWeekMonth" margin=0]
+	}
+	DateWithinMonth [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">DateWithinMonth</TD></TR><TR><TD ALIGN="LEFT">applicableDayOfMonth : xsd:integer [1..31]</TD></TR></TABLE>> URL="../DateWithinMonth" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+	}
+	DateWithinMonth -> DayWeekMonth [arrowhead=onormal style=solid]
+}

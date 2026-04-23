@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/itsdata/time/v1/"
+     xml:base="https://w3id.org/itsdata/time/v1/"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:time="http://www.w3.org/2006/time#"
+     xmlns:cmns-dt="https://www.omg.org/spec/Commons/DatesAndTimes/"
+     xmlns:cdm1="https://w3id.org/citydata/part1/v1/"
+     xmlns:cdm2="https://w3id.org/citydata/part2/v1/"
+     xmlns:its-core="https://w3id.org/itsdata/core/v1/">
+
+    <owl:Ontology rdf:about="https://w3id.org/itsdata/time/v1/FuzzyTimePattern/">
+    	<!-- Identity -->
+    	<dcterms:title>Fuzzy Time concepts of the Time Ontology for ITS</dcterms:title>
+    	<skos:definition>This ontology defines concepts related to fuzzy time within Intelligent Transportation Systems (ITS).</skos:definition>
+    	<vann:preferredNamespaceUri>https://w3id.org/itsdata/time/v1/</vann:preferredNamespaceUri>
+    	<vann:preferredNamespacePrefix>its-time</vann:preferredNamespacePrefix>
+        <cdm1:mainModule>false</cdm1:mainModule>
+        <its-core:draft>true</its-core:draft>
+    		
+    	<!-- Provenance -->
+    	<dcterms:creator>Kenneth Vaughn</dcterms:creator>
+        <dcterms:created>Draft</dcterms:created>
+        <!-- Prior release - None -->
+        <!-- This release -->
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-03-06</dcterms:modified>
+        <owl:versionInfo>v0.0.2</owl:versionInfo>
+        <owl:versionIRI rdf:resource="https://w3id.org/itsdata/time/v1/FuzzyTimePattern/r0.2"/>
+        <!-- TODO: I need to make sure that the above IRIs will work, in particular, the w3id redirect needs to be able to recognize that the r#.# extension is a release and not a class or property. -->
+        
+        <!-- License -->
+        <dcterms:license>http://creativecommons.org/licenses/by/4.0/</dcterms:license>
+        
+        <!-- Imports -->
+        <owl:imports rdf:resource="https://w3id.org/citydata/part2/v1/CodePattern/"/>
+        <owl:imports rdf:resource="https://w3id.org/itsdata/time/v1/Core/"/>
+        <owl:imports rdf:resource="https://www.omg.org/spec/Commons/DatesAndTimes/"/>
+    </owl:Ontology>
+    
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- https://w3id.org/itsdata/time/v1/timeReference -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/itsdata/time/v1/timeReference">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/itsdata/time/v1/TimeObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/itsdata/time/v1/FuzzyTimeCode"/>
+    </owl:ObjectProperty>
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+     <!-- https://w3id.org/itsdata/time/v1/TimeOfDay -->
+
+    <owl:Class rdf:about="https://w3id.org/itsdata/time/v1/TimeOfDay">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/itsdata/time/v1/TimeThing"/>
+        <dcterms:description>A time that can be used to designate a point in time within a day, which can be a specific time (e.g., 8:00am) or a named time (e.g., morning, afternoon, evening, night) per a specified code list.</dcterms:description>
+    </owl:Class>
+
+     <!-- https://w3id.org/itsdata/time/v1/SimpleTimeOfDay -->
+
+    <owl:Class rdf:about="https://w3id.org/itsdata/time/v1/SimpleTimeOfDay">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/itsdata/time/v1/TimeOfDay"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/time"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+
+
+     <!-- https://w3id.org/itsdata/time/v1/FuzzyTime -->
+
+    <owl:Class rdf:about="https://w3id.org/itsdata/time/v1/FuzzyTime">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/itsdata/time/v1/TimeThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/timeCode"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/itsdata/time/v1/FuzzyTimeCode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/offset"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2006/time#Duration"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/offset"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2006/time#Duration"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/after"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/after"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dcterms:description>An instant in time designated by a timeReference event coupled with a defined offset either before or after the referenced event. Possible codes can include "dawn", "dusk", "start of rain", "start of school", etc. The offset indicates the amount of units of time from this event either before (after = false) or after (after = true) an event meeting the indicated designation. The website can provide additional details about the occurrence of the event (e.g., a schedule for the school sessions).</dcterms:description>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/FuzzyTimeCode -->
+
+    <owl:Class rdf:about="https://w3id.org/itsdata/time/v1/FuzzyTimeCode">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/Code"/>
+        <dcterms:description>A code representing a fuzzy time reference, such as "dawn", "dusk", "start of rain", "start of school", etc. The website can provide additional details about the occurrence of the event (e.g., a schedule for the school sessions).</dcterms:description>
+    </owl:Class>
+
+</rdf:RDF>
