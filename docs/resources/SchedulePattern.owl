@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns="https://w3id.org/itsdata/time/v1/"
+     xml:base="https://w3id.org/itsdata/time/v1/"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:time="http://www.w3.org/2006/time#"
+     xmlns:cdm1="https://w3id.org/citydata/part1/v1/"
+     xmlns:its-core="https://w3id.org/itsdata/core/v1/">
+
+    <owl:Ontology rdf:about="https://w3id.org/itsdata/time/v1/SchedulePattern">
+    	<!-- Identity -->
+    	<dcterms:title>ITS Time Ontology - Schedule Pattern</dcterms:title>
+    	<skos:definition>This ontology defines concepts related to schedules for temporal validity in traffic and transport situations.</skos:definition>
+    	<vann:preferredNamespaceUri>https://w3id.org/itsdata/time/v1/</vann:preferredNamespaceUri>
+    	<vann:preferredNamespacePrefix>its-time</vann:preferredNamespacePrefix>
+        <cdm1:mainModule>false</cdm1:mainModule>
+        <its-core:draft>true</its-core:draft>
+    		
+    	<!-- Provenance -->
+    	<dcterms:creator>Kenneth Vaughn</dcterms:creator>
+        <dcterms:creator>Grok</dcterms:creator>
+        <dcterms:created>Draft</dcterms:created>
+        <!-- Prior release: None -->
+        <!-- This release -->
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-03-11</dcterms:modified>
+        <owl:versionInfo>0.0.2</owl:versionInfo>
+        <owl:versionIRI rdf:resource="https://w3id.org/itsdata/time/v1/SchedulePattern/r0.2"/>
+        <!-- TODO: I need to make sure that the above IRIs will work, in particular, the w3id redirect needs to be able to recognize that the r#.# extension is a release and not a class or property. -->
+        
+        <!-- License -->
+        <dcterms:license>http://creativecommons.org/licenses/by/4.0/</dcterms:license>
+        
+        <!-- Imports -->
+        <owl:imports rdf:resource="https://w3id.org/itsdata/time/v1/Core/"/>
+        <!-- which includes the following cascade of imports:
+            CityPattern
+                LandUsePattern
+                    CodePattern
+                        Core(cdm2)
+                        OrganizationStructurePattern
+                            AgentPattern
+                                GenericPropertiesPattern
+                                ResourcePattern
+                                    ActivityPattern
+                                        ChangePattern
+                                        SpatialLocPattern
+                                            MereologyPattern
+                                    CityUnitsPattern
+                                        ISO21972
+                                        Core (cdm1)
+                                            Time (W3C)
+         -->
+    </owl:Ontology>
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- https://w3id.org/itsdata/time/v1/ScheduleObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/itsdata/time/v1/ScheduleObjectProperty">
+    		<skos:definition>An object property to organize all object properties defined in the ITS Schedule Pattern.</skos:definition>
+            <rdfs:subPropertyOf rdf:resource="https://w3id.org/itsdata/time/v1/ITSObjectProperty"/>
+    </owl:ObjectProperty>
+    
+    <!-- https://w3id.org/itsdata/time/v1/applicabilityStatus -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/itsdata/time/v1/applicabilityStatus">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleObjectProperty"/>
+        <skos:definition>Specifies the applicability status of the schedule's logic.</skos:definition>
+        <rdfs:domain rdf:resource="https://w3id.org/itsdata/time/v1/Schedule"/>
+        <rdfs:range rdf:resource="https://w3id.org/itsdata/time/v1/ApplicabilityStatusCode"/>
+        <skos:editorsNote>Changed from DATEX II validityStatus</skos:editorsNote>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/applicableArea -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/itsdata/time/v1/applicableArea">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleObjectProperty"/>
+        <skos:definition>Specifies an area associated with a SpecialDay.</skos:definition>
+        <rdfs:domain rdf:resource="https://w3id.org/itsdata/time/v1/SpecialDay"/>
+        <rdfs:range rdf:resource="https://w3id.org/citydata/part2/v1/NamedArea"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/applicableDay -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/itsdata/time/v1/applicableDay">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleObjectProperty"/>
+        <skos:definition>Specifies a day of the week during which the DayWeekMonth object is applicable.</skos:definition>
+        <rdfs:domain rdf:resource="https://w3id.org/itsdata/time/v1/DayWeekMonth"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#DayOfWeek"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/applicableWeek -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/itsdata/time/v1/applicableWeek">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleObjectProperty"/>
+        <skos:definition>Specifies a week within a month during which the CalendarWeekWithinMonth object is applicable.</skos:definition>
+        <rdfs:domain rdf:resource="https://w3id.org/itsdata/time/v1/CalendarWeekWithinMonth"/>
+        <rdfs:range rdf:resource="https://w3id.org/itsdata/time/v1/WeekCode"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/exceptionPeriod -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/itsdata/time/v1/exceptionPeriod">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleObjectProperty"/>
+        <skos:definition>A period completely or partially within the overall period during which the schedule does not apply. An exceptionPeriod overrules any validPeriod definition.</skos:definition>
+        <rdfs:domain rdf:resource="https://w3id.org/itsdata/time/v1/OverallPeriod"/>
+        <rdfs:range rdf:resource="https://w3id.org/itsdata/time/v1/Period"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/overallPeriod -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/itsdata/time/v1/overallPeriod">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleObjectProperty"/>
+        <skos:definition>The overall container of rules that define the periods when the scheduling logic evaluates to true.</skos:definition>
+        <rdfs:domain rdf:resource="https://w3id.org/itsdata/time/v1/Schedule"/>
+        <rdfs:range rdf:resource="https://w3id.org/itsdata/time/v1/OverallPeriod"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/publicEvent -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/itsdata/time/v1/publicEvent">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleObjectProperty"/>
+        <skos:definition>Indication of the type of public event.</skos:definition>
+        <rdfs:domain rdf:resource="https://w3id.org/itsdata/time/v1/SpecialDay"/>
+        <rdfs:range rdf:resource="https://w3id.org/itsdata/time/v1/PublicEventCode"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/recurringDayWeekMonthPeriod -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/itsdata/time/v1/recurringDayWeekMonthPeriod">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleObjectProperty"/>
+        <skos:definition>A recurring period specified by the intersection of day, week, and month parameters.</skos:definition>
+        <rdfs:domain rdf:resource="https://w3id.org/itsdata/time/v1/Period"/>
+        <rdfs:range rdf:resource="https://w3id.org/itsdata/time/v1/DayWeekMonth"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/recurringSpecialDay -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/itsdata/time/v1/recurringSpecialDay">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleObjectProperty"/>
+        <skos:definition>A recurring special day specified by a day type.</skos:definition>
+        <skos:example>public holiday</skos:example>
+        <rdfs:domain rdf:resource="https://w3id.org/itsdata/time/v1/Period"/>
+        <rdfs:range rdf:resource="https://w3id.org/itsdata/time/v1/SpecialDay"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/recurringTimePeriodOfDay -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/itsdata/time/v1/recurringTimePeriodOfDay">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleObjectProperty"/>
+        <skos:definition>Specification of a applicable time period that starts on applicable days. If the time period spans midnight (i.e. the end time is earlier than the start time), the applicability of the period will extend to the end time on the following day, even if that day is not normally applicable.</skos:definition>
+        <rdfs:domain rdf:resource="https://w3id.org/itsdata/time/v1/Period"/>
+        <rdfs:range rdf:resource="https://w3id.org/itsdata/time/v1/TimePeriodOfDay"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/specialDayType -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/itsdata/time/v1/specialDayType">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleObjectProperty"/>
+        <skos:definition>The type of special day.</skos:definition>
+        <rdfs:domain rdf:resource="https://w3id.org/itsdata/time/v1/Period"/>
+        <rdfs:range rdf:resource="https://w3id.org/itsdata/time/v1/SpecialDayTypeCode"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/validPeriod -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/itsdata/time/v1/validPeriod">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleObjectProperty"/>
+        <skos:definition>A period completely or partially within the overall period during which the schedule applies. A validPeriod can be overruled by an exceptionPeriod and the overall start and end of the overall period.</skos:definition>
+        <rdfs:domain rdf:resource="https://w3id.org/itsdata/time/v1/OverallPeriod"/>
+        <rdfs:range rdf:resource="https://w3id.org/itsdata/time/v1/Period"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+    <!-- https://w3id.org/itsdata/time/v1/ScheduleDataProperty -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/itsdata/time/v1/ScheduleDataProperty">
+        <skos:definition>A data property to organize all data properties defined in the Schedule Pattern.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/itsdata/time/v1/ITSDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/applicableInstanceOfDayWithinMonth -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/itsdata/time/v1/applicableInstanceOfDayWithinMonth">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleDataProperty"/>
+        <skos:definition>Specifies an instance of a day within a month during which the InstanceOfDayWithinMonth object is applicable. The values 1-5 indicate the first through fifth occurrence of the day within the month.</skos:definition>
+        <rdfs:domain rdf:resource="https://w3id.org/itsdata/time/v1/InstanceOfDayWithinMonth"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/applicableMonth -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/itsdata/time/v1/applicableMonth">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleDataProperty"/>
+        <skos:definition>Specifies a month during which the DayWeekMonth object is applicable.</skos:definition>
+        <rdfs:domain rdf:resource="https://w3id.org/itsdata/time/v1/DayWeekMonth"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#MonthOfYear"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/endOfPeriod -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/itsdata/time/v1/endOfPeriod">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleDataProperty"/>
+        <skos:definition>The end time of the period.</skos:definition>
+        <rdfs:domain rdf:resource="https://w3id.org/itsdata/time/v1/Period"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/endTimeOfDay -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/itsdata/time/v1/endTimeOfDay">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleDataProperty"/>
+        <skos:definition>End time of the period within the recurring day pattern. The end time occurs on the following day if it is earlier than the start time.</skos:definition>
+        <rdfs:domain rdf:resource="https://w3id.org/itsdata/time/v1/TimePeriodOfDay"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+    </owl:DatatypeProperty>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/intersectWithApplicableDays -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/itsdata/time/v1/intersectWithApplicableDays">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleDataProperty"/>
+        <skos:definition>If true, the period is the intersection of the special day with applicable days. If false, the period is the union of the special day with applicable days.</skos:definition>
+        <rdfs:domain rdf:resource="https://w3id.org/itsdata/time/v1/SpecialDay"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/overallEndTime -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/itsdata/time/v1/overallEndTime">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleDataProperty"/>
+        <skos:definition>The end time of the overall period.</skos:definition>
+        <rdfs:domain rdf:resource="https://w3id.org/itsdata/time/v1/OverallPeriod"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/overallStartTime -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/itsdata/time/v1/overallStartTime">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleDataProperty"/>
+        <skos:definition>The start time of the overall period.</skos:definition>
+        <rdfs:domain rdf:resource="https://w3id.org/itsdata/time/v1/OverallPeriod"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/overrunning -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/itsdata/time/v1/overrunning">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleDataProperty"/>
+        <skos:definition>Indicates if the schedule is exceeding its expected duration.</skos:definition>
+        <rdfs:domain rdf:resource="https://w3id.org/itsdata/time/v1/Schedule"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/reverseInstance -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/itsdata/time/v1/reverseInstance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleDataProperty"/>
+        <skos:definition>If true, the instance of day within the month is counted from the end of the month.</skos:definition>
+        <rdfs:domain rdf:resource="https://w3id.org/itsdata/time/v1/InstanceOfDayWithinMonth"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <skos:editorsNote>Added capability compared to from DATEX II validityStatus</skos:editorsNote>
+    </owl:DatatypeProperty>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/startOfPeriod -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/itsdata/time/v1/startOfPeriod">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleDataProperty"/>
+        <skos:definition>The start time of the period.</skos:definition>
+        <rdfs:domain rdf:resource="https://w3id.org/itsdata/time/v1/Period"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/startTimeOfDay -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/itsdata/time/v1/startTimeOfDay">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleDataProperty"/>
+        <skos:definition>Start time of the period within the recurring day pattern.</skos:definition>
+        <rdfs:domain rdf:resource="https://w3id.org/itsdata/time/v1/TimePeriodOfDay"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+    </owl:DatatypeProperty>
+    
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- https://w3id.org/itsdata/time/v1/ScheduleThing -->
+
+    <owl:Class rdf:about="https://w3id.org/itsdata/time/v1/ScheduleThing">
+        <skos:definition>Added for organizational purposes, to identify classes defined in the Schedule Pattern for ITS.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/itsdata/time/v1/TimeThing"/>
+        </owl:Class>
+
+
+    <!-- https://w3id.org/itsdata/time/v1/CalendarWeekWithinMonth -->
+
+    <owl:Class rdf:about="https://w3id.org/itsdata/time/v1/CalendarWeekWithinMonth">
+        <skos:definition>Specification of recurring periods in terms of the calendar week(s) of the month.</skos:definition>
+        <skos:note>Different codes can potentially have different definitions on whether partial weeks are counted and the day of week on which a new week starts.</skos:note>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/applicableWeek"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/itsdata/time/v1/WeekCode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/applicableWeek"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">6</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/itsdata/time/v1/WeekCode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+
+
+    <!-- https://w3id.org/itsdata/time/v1/DayWeekMonth -->
+
+    <owl:Class rdf:about="https://w3id.org/itsdata/time/v1/DayWeekMonth">
+        <skos:definition>Specification of recurring periods based on applicable days of week and months.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#hasTRS"/>
+                <owl:hasValue rdf:resource="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#unitType"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#dayOfWeek"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#monthOfYear"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#timeZone"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#day"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#dayOfYear"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#hour"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#minute"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#month"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#second"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#week"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#year"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#day"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2006/time#DayOfMonth"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#month"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2006/time#MonthOfYear"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#year"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2006/time#Year"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/applicableDay"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2006/time#DayOfWeek"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/applicableMonth"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2006/time#MonthOfYear"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/InstanceOfDayWithinMonth -->
+
+    <owl:Class rdf:about="https://w3id.org/itsdata/time/v1/InstanceOfDayWithinMonth">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/itsdata/time/v1/DayWeekMonth"/>
+        <skos:definition>Recurring periods by the nth occurrence of a weekday in a month.</skos:definition>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/applicableInstanceOfDayWithinMonth"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/applicableInstanceOfDayWithinMonth"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">5</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/reverseInstance"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/OverallPeriod -->
+
+    <owl:Class rdf:about="https://w3id.org/itsdata/time/v1/OverallPeriod">
+        <skos:definition>The bounding start and end times of the validity period.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/overallStartTime"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/overallEndTime"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/validPeriod"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/itsdata/time/v1/Period"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/exceptionPeriod"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/itsdata/time/v1/Period"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/Period -->
+
+    <owl:Class rdf:about="https://w3id.org/itsdata/time/v1/Period">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/recurringDayWeekMonthPeriod"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/itsdata/time/v1/DayWeekMonth"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/recurringSpecialDay"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/itsdata/time/v1/SpecialDay"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/recurringTimePeriodOfDay"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/itsdata/time/v1/TimePeriodOfDay"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasName"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/endOfPeriod"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/startOfPeriod"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <skos:definition>A single valid or invalid period, or a set of repeating periods.</skos:definition>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/PublicHoliday -->
+
+    <owl:Class rdf:about="https://w3id.org/itsdata/time/v1/PublicHoliday">
+        <skos:definition>A specialization representing named public holidays.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/itsdata/time/v1/SpecialDay"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/citydata/part1/v1/hasName"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/SpecialDay -->
+
+    <owl:Class rdf:about="https://w3id.org/itsdata/time/v1/SpecialDay">
+        <skos:definition>Recurring periods based on special days, including public holidays.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/intersectWithApplicableDays"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/specialDayType"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/itsdata/time/v1/SpecialDayTypeCode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/publicEvent"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/itsdata/time/v1/PublicEventCode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/applicableArea"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/citydata/part2/v1/NamedArea"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/TimePeriodOfDay -->
+
+    <owl:Class rdf:about="https://w3id.org/itsdata/time/v1/TimePeriodOfDay">
+        <skos:definition>Recurring periods within a single day using start and end times.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/startTimeOfDay"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/endTimeOfDay"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/Schedule -->
+
+    <owl:Class rdf:about="https://w3id.org/itsdata/time/v1/Schedule">
+        <skos:definition>The class defining the temporal validity of a situation element or its impact.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/applicabilityStatus"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/itsdata/time/v1/ApplicabilityStatusCode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/overrunning"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/itsdata/time/v1/overallPeriod"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/itsdata/time/v1/OverallPeriod"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/ApplicabilityStatusCode -->
+
+    <owl:Class rdf:about="https://w3id.org/itsdata/time/v1/ApplicabilityStatusCode">
+        <skos:definition>Enumeration for applicability status.</skos:definition>
+        <skos:example>active (override to true), planned, suspended (override to false), determinedBySchedule</skos:example>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleThing"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/Code"/>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/PublicEventCode -->
+
+    <owl:Class rdf:about="https://w3id.org/itsdata/time/v1/PublicEventCode">
+        <skos:definition>Code that provides for an identification of public event types.</skos:definition>
+        <skos:example>airShow, concert, parade</skos:example>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleThing"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/Code"/>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/SpecialDayTypeCode -->
+
+    <owl:Class rdf:about="https://w3id.org/itsdata/time/v1/SpecialDayTypeCode">
+        <skos:definition>Code that provides for an identification of special day types.</skos:definition>
+        <skos:example>publicHoliday, longWeekendDay, schoolDay</skos:example>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleThing"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/Code"/>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/itsdata/time/v1/WeekCode -->
+
+    <owl:Class rdf:about="https://w3id.org/itsdata/time/v1/WeekCode">
+        <skos:definition>Code that provides for a unique identification for weeks within a month.</skos:definition>
+        <skos:example>week1, week2, week3, and week4</skos:example>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/itsdata/time/v1/ScheduleThing"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/Code"/>
+    </owl:Class>
+    
+
+    <!-- https://w3id.org/citydata/part2/v1/NamedArea -->
+
+    <owl:Class rdf:about="https://w3id.org/citydata/part2/v1/NamedArea">
+        <skos:definition>A named geographical area.</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/citydata/part2/v1/CityPatternThing"/>
+    </owl:Class>
+</rdf:RDF>   

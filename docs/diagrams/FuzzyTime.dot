@@ -1,0 +1,25 @@
+// Diagram for FuzzyTime
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=source
+		TimeOfDay [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">TimeOfDay</TD></TR></TABLE>> URL="../TimeOfDay" margin=0]
+	}
+	FuzzyTime [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">FuzzyTime</TD></TR><TR><TD ALIGN="LEFT">offset : xsd:duration [1]</TD></TR><TR><TD ALIGN="LEFT">time:timeZone [0..1]</TD></TR><TR><TD ALIGN="LEFT">time:unitType [0..1]</TD></TR></TABLE>> URL="../FuzzyTime" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		FuzzyTimeCode [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">FuzzyTimeCode</TD></TR></TABLE>> URL="../FuzzyTimeCode" margin=0]
+	}
+	FuzzyTime -> TimeOfDay [arrowhead=onormal style=solid]
+	FuzzyTime -> Invis [style=invis]
+	Invis -> FuzzyTimeCode [style=invis]
+	FuzzyTimeCode [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">FuzzyTimeCode</TD></TR></TABLE>> URL="../FuzzyTimeCode" margin=0]
+	FuzzyTime -> FuzzyTimeCode [label="timeReference
+1" arrowhead=normal style=solid]
+}

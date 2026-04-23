@@ -1,0 +1,30 @@
+// Diagram for DayWeekMonth
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	{
+		rank=source
+		ScheduleThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ScheduleThing</TD></TR></TABLE>> URL="../ScheduleThing" margin=0]
+	}
+	DayWeekMonth [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">DayWeekMonth</TD></TR><TR><TD ALIGN="LEFT">time:hasTRS [1]</TD></TR><TR><TD ALIGN="LEFT">time:timeZone [1]</TD></TR></TABLE>> URL="../DayWeekMonth" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		time_DayOfWeek [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:DayOfWeek</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/DayOfWeek" margin=0]
+		time_MonthOfYear [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:MonthOfYear</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/MonthOfYear" margin=0]
+	}
+	DayWeekMonth -> ScheduleThing [arrowhead=onormal style=solid]
+	DayWeekMonth -> Invis [style=invis]
+	Invis -> time_DayOfWeek [style=invis]
+	time_DayOfWeek -> time_MonthOfYear [style=invis]
+	time_DayOfWeek [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:DayOfWeek</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/DayOfWeek" margin=0]
+	DayWeekMonth -> time_DayOfWeek [label="applicableDayOfWeek
+1..7" arrowhead=normal style=solid]
+	time_MonthOfYear [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:MonthOfYear</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/MonthOfYear" margin=0]
+	DayWeekMonth -> time_MonthOfYear [label="applicableMonth
+1..12" arrowhead=normal style=solid]
+}

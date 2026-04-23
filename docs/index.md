@@ -1,13 +1,9 @@
-# Ontology for time within ITS
+# The Time Ontology for ITS (bundle)
 
-This ontology defines concepts related to time as used within ITS using concepts specified in ISO/IEC 5087-1 and ISO/IEC-5087-2.
+The The Time Ontology for ITS (bundle) consists of the following patterns:
 
-This ontology consists of the following patterns:
+- [Core](core.md)
+- [Fuzzy Time](fuzzy-time-pattern.md)
+- [Schedule](schedule-pattern.md)
 
-- [Time Pattern (itsTime)](classes/itsTime__TimePattern.md)
-
-The ontology also contains the following classes that are not assigned to any pattern:
-
-- [Time Pattern (itsTime)](classes/itsTime__TimePattern.md)
-
-The formal definition of these patterns is available in [TTL Syntax](itsTime.ttl).
+The formal definition of this ontology is available in [TURTLE Syntax](its-time.ttl).

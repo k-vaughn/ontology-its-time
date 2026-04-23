@@ -1,0 +1,2 @@
+ReqView_ID,qname,display_name,description,diagram_url,website,last_updated
+its-time-1,FuzzyTime,FuzzyTime,"An instant in time designated by a timeReference event coupled with a defined offset either before or after the referenced event. Possible codes can include `dawn`, `dusk`, `start of rain`, `start of school`, etc. The offset indicates the amount of units of time from this event either before or after the time reference code.",diagrams/FuzzyTime.dot.svg,FuzzyTime.md,2026-04-15T10:36:41.914196
