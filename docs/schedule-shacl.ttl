@@ -112,6 +112,7 @@ PREFIX time: <http://www.w3.org/2006/time#>
         sh:path :exceptionPeriod ;
         sh:class :Period ;
     ] .
+    
 :PeriodShape a sh:NodeShape ;
     sh:targetClass :Period ;
     sh:property [
@@ -128,6 +129,10 @@ PREFIX time: <http://www.w3.org/2006/time#>
         sh:path :hasRecurringTimePeriodOfDay ;
         sh:node its-sh:MaxOneShape ;
         sh:class :TimePeriodOfDay ;
+    ] ;
+    sh:property [
+        sh:path :hasApplicableFuzzyTimePeriod ;
+        sh:class :FuzzyTimePeriod ;
     ] ;
     sh:property [
         sh:path cdm1:hasName ;
@@ -168,6 +173,7 @@ PREFIX time: <http://www.w3.org/2006/time#>
         sh:node its-sh:ExactlyOneShape ;
         sh:class :ValidityStatusCode ;
     ] .
+
 :SpecialDayShape a sh:NodeShape ;
     sh:targetClass :SpecialDay ;
     sh:property [
@@ -190,6 +196,7 @@ PREFIX time: <http://www.w3.org/2006/time#>
         sh:node its-sh:MaxOneShape ;
         sh:class cdm2:NamedArea ;
     ] .
+    
 :TimePeriodOfDayShape a sh:NodeShape ;
     sh:targetClass :TimePeriodOfDay ;
     sh:property [

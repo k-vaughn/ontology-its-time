@@ -10,8 +10,9 @@ nav:
 - Fuzzy Time Pattern:
   - Fuzzy Time Pattern: fuzzy-time-pattern.md
   - Clock Time: ClockTime.md
-  - Fuzzy Time: FuzzyTime.md
+  - Fuzzy Time Instant: FuzzyTimeInstant.md
   - Fuzzy Time Code: FuzzyTimeCode.md
+  - Fuzzy Time Period: FuzzyTimePeriod.md
   - Time Of Day: TimeOfDay.md
 - Schedule Pattern:
   - Schedule Pattern: schedule-pattern.md

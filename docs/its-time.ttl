@@ -20,10 +20,10 @@ PREFIX its-core: <https://w3id.org/itsdata/core/v1/>
     #Provenance metadata
     dcterms:creator                "Kenneth Vaughn";
     dcterms:created                "Draft";
-    dcterms:modified               "2026-04-23"^^xsd:date;
-    owl:versionInfo                "0.0.3";
-    owl:versionIRI                 :r0.3;
-    owl:priorVersion               :r0.2;
+    dcterms:modified               "2026-05-12"^^xsd:date;
+    owl:versionInfo                "0.0.4";
+    owl:versionIRI                 :r0.4;
+    owl:priorVersion               :r0.3;
     
     # Imports
     owl:imports                    :SchedulePattern .

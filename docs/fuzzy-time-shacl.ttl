@@ -80,12 +80,12 @@ PREFIX its-sh: <https://w3id.org/itsdata/shacl/v1/>
         sh:message "ClockTime must not have a year component."@en
     ] .
 
-    :FuzzyTimeShape a sh:NodeShape ;
-    sh:targetClass :FuzzyTime ;
+:FuzzyTimeInstantShape a sh:NodeShape ;
+    sh:targetClass :FuzzyTimeInstant ;
     sh:property [
         sh:path :timeReference ;
         sh:node its-sh:ExactlyOneShape ;
-        sh:class :FuzzyTimeCode ;
+        sh:class :FuzzyTimeInstantCode ;
     ] ;
     sh:property [
         sh:path :offset ;

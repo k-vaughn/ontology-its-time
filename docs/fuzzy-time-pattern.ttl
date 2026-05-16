@@ -23,7 +23,7 @@ PREFIX its-core: <https://w3id.org/itsdata/core/v1/>
     #Provenance metadata
     dcterms:creator                "Kenneth Vaughn";
     dcterms:created                "Draft";
-    dcterms:modified               "2026-04-23"^^xsd:date;
+    dcterms:modified               "2026-05-12"^^xsd:date;
     
     # Imports
     owl:imports                    :Core .
@@ -52,8 +52,8 @@ PREFIX its-core: <https://w3id.org/itsdata/core/v1/>
 
 :timeReference a owl:ObjectProperty;
     rdfs:subPropertyOf      :TimeObjectProperty ;
-    schema:domainIncludes   :FuzzyTime ;
-    schema:rangeIncludes              :FuzzyTimeCode .
+    schema:domainIncludes   :FuzzyTimeInstant ;
+    schema:rangeIncludes    :FuzzyTimeInstantCode .
 
 ####################################
 # Data Properties
@@ -101,13 +101,20 @@ PREFIX its-core: <https://w3id.org/itsdata/core/v1/>
         owl:onProperty          time:year ;
         owl:maxCardinality      "0"^^xsd:nonNegativeInteger ] .
 
-:FuzzyTime a owl:Class;
-    skos:definition     "An instant in time designated by a named timeReference event (e.g., `dusk`) coupled with a defined offset either before or after the referenced event. The timeReference can be any value from a recognized FuzzyTimeCode. The offset indicates the amount of units of time from this event either before or after the timeReference."@en ;
+:FuzzyTimeInstant a owl:Class;
+    skos:definition     "An instant in time designated by a named timeReference event (e.g., `dusk`) coupled with a defined offset either before or after the referenced event. The timeReference can be any value from a recognized FuzzyTimeInstantCode (from a code list). The offset indicates the amount of units of time from this event either before or after the timeReference."@en ;
+    skos:note           " For named fuzzy *periods* or bands (e.g. seasons, peak hours) used as applicability windows rather than instants, use :FuzzyTimePeriod on :Period via :hasApplicableFuzzyTimePeriod."@en ;
     skos:example        "30 minutes after dusk"@en ;
     rdfs:subClassOf         :TimeOfDay .
 
-:FuzzyTimeCode a owl:Class;
-    skos:definition     "A code indicating a named time during the day, such as `dawn`, `dusk`, `start of rain`, `start of school`, etc."@en ;
+:FuzzyTimeInstantCode a owl:Class;
+    skos:definition     "A code identifying a named reference used by :FuzzyTimeInstant (e.g. `dawn`, `dusk`, `start of school`). Code list contents are maintained externally."@en ;
+    rdfs:subClassOf         :TimeThing ;
+    rdfs:subClassOf         cdm2:Code .
+
+:FuzzyTimePeriod a owl:Class;
+    skos:definition     "A code identifying a named fuzzy *period* or applicability band (e.g. winter, peak hours, high tide), with a formal external definition in the code list. Multiple :hasApplicableFuzzyTimePeriod assertions on a :Period can express a conjunction of such periods"@en ;
+    skos:note           "For an `fuzzy` instant with an optional offset, use :FuzzyTimeInstant."@en ;
     rdfs:subClassOf         :TimeThing ;
     rdfs:subClassOf         cdm2:Code .
 
