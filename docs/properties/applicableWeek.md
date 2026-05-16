@@ -8,6 +8,6 @@ Specifies a week within a month during which the CalendarWeekWithinMonth object 
 
 | Class |
 |-------|
-| [CalendarWeekWithinMonth](../../CalendarWeekWithinMonth/) |
+| [CalendarWeekWithinMonth](../classes/CalendarWeekWithinMonth.md) |
 
 **IRI**: `https://w3id.org/itsdata/time/v1/applicableWeek`

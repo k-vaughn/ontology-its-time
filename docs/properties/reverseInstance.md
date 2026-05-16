@@ -8,7 +8,7 @@ If true, the instance of day/week within the month is counted from the end of th
 
 | Class |
 |-------|
-| [CalendarWeekWithinMonth](../../CalendarWeekWithinMonth/) |
-| [InstanceOfDayWithinMonth](../../InstanceOfDayWithinMonth/) |
+| [CalendarWeekWithinMonth](../classes/CalendarWeekWithinMonth.md) |
+| [InstanceOfDayWithinMonth](../classes/InstanceOfDayWithinMonth.md) |
 
 **IRI**: `https://w3id.org/itsdata/time/v1/reverseInstance`

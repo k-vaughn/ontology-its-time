@@ -4,33 +4,69 @@ site_description: A registry for documenting the ontology of time concepts for u
 repo_url: https://github.com/k-vaughn/ontology-its-time
 nav:
 - Home: index.md
-- its-time:core:
-  - its-time:core: core.md
-  - Time Thing: TimeThing.md
+- Core Pattern:
+  - Core Pattern Overview: classes/CorePattern.md
+  - Classes:
+    - Time Thing: classes/TimeThing.md
+  - Properties:
+    - TimeDataProperty: properties/TimeDataProperty.md
+    - TimeObjectProperty: properties/TimeObjectProperty.md
 - Fuzzy Time Pattern:
-  - Fuzzy Time Pattern: fuzzy-time-pattern.md
-  - Clock Time: ClockTime.md
-  - Fuzzy Time Instant: FuzzyTimeInstant.md
-  - Fuzzy Time Code: FuzzyTimeCode.md
-  - Fuzzy Time Period: FuzzyTimePeriod.md
-  - Time Of Day: TimeOfDay.md
+  - Fuzzy Time Pattern Overview: classes/FuzzyTimePattern.md
+  - Classes:
+    - Clock Time: classes/ClockTime.md
+    - Fuzzy Time Instant: classes/FuzzyTimeInstant.md
+    - Fuzzy Time Instant Code: classes/FuzzyTimeInstantCode.md
+    - Fuzzy Time Period: classes/FuzzyTimePeriod.md
+    - Time Of Day: classes/TimeOfDay.md
+  - Properties:
+    - offset: properties/offset.md
+    - timeReference: properties/timeReference.md
 - Schedule Pattern:
-  - Schedule Pattern: schedule-pattern.md
-  - Calendar Week Within Month: CalendarWeekWithinMonth.md
-  - Date Within Month: DateWithinMonth.md
-  - Day Week Month: DayWeekMonth.md
-  - Instance Of Day Within Month: InstanceOfDayWithinMonth.md
-  - Overall Period: OverallPeriod.md
-  - Period: Period.md
-  - Public Event Code: PublicEventCode.md
-  - Public Holiday: PublicHoliday.md
-  - Schedule: Schedule.md
-  - Schedule Thing: ScheduleThing.md
-  - Special Day: SpecialDay.md
-  - Special Day Type Code: SpecialDayTypeCode.md
-  - Time Period Of Day: TimePeriodOfDay.md
-  - Validity Status Code: ValidityStatusCode.md
-  - Week Code: WeekCode.md
+  - Schedule Pattern Overview: classes/SchedulePattern.md
+  - Classes:
+    - Calendar Week Within Month: classes/CalendarWeekWithinMonth.md
+    - Date Within Month: classes/DateWithinMonth.md
+    - Day Week Month: classes/DayWeekMonth.md
+    - Instance Of Day Within Month: classes/InstanceOfDayWithinMonth.md
+    - Overall Period: classes/OverallPeriod.md
+    - Period: classes/Period.md
+    - Public Event Code: classes/PublicEventCode.md
+    - Public Holiday: classes/PublicHoliday.md
+    - Schedule: classes/Schedule.md
+    - Schedule Thing: classes/ScheduleThing.md
+    - Special Day: classes/SpecialDay.md
+    - Special Day Type Code: classes/SpecialDayTypeCode.md
+    - Time Period Of Day: classes/TimePeriodOfDay.md
+    - Validity Status Code: classes/ValidityStatusCode.md
+    - Week Code: classes/WeekCode.md
+  - Properties:
+    - applicableArea: properties/applicableArea.md
+    - applicableDayOfWeek: properties/applicableDayOfWeek.md
+    - applicableInstanceOfDayWithinMonth: properties/applicableInstanceOfDayWithinMonth.md
+    - applicableMonth: properties/applicableMonth.md
+    - applicableWeek: properties/applicableWeek.md
+    - dailyEndTime: properties/dailyEndTime.md
+    - dailyStartTime: properties/dailyStartTime.md
+    - endOfPeriod: properties/endOfPeriod.md
+    - exceptionPeriod: properties/exceptionPeriod.md
+    - hasApplicableFuzzyTimePeriod: properties/hasApplicableFuzzyTimePeriod.md
+    - hasPublicEventType: properties/hasPublicEventType.md
+    - hasRecurringDayWeekMonthPeriod: properties/hasRecurringDayWeekMonthPeriod.md
+    - hasRecurringSpecialDay: properties/hasRecurringSpecialDay.md
+    - hasRecurringTimePeriodOfDay: properties/hasRecurringTimePeriodOfDay.md
+    - hasSpecialDayType: properties/hasSpecialDayType.md
+    - hasValidityStatus: properties/hasValidityStatus.md
+    - intersectWithApplicableDays: properties/intersectWithApplicableDays.md
+    - isOverrunning: properties/isOverrunning.md
+    - overallEndTime: properties/overallEndTime.md
+    - overallStartTime: properties/overallStartTime.md
+    - reverseInstance: properties/reverseInstance.md
+    - ScheduleDataProperty: properties/ScheduleDataProperty.md
+    - ScheduleObjectProperty: properties/ScheduleObjectProperty.md
+    - startOfPeriod: properties/startOfPeriod.md
+    - validityTimeSpecification: properties/validityTimeSpecification.md
+    - validPeriod: properties/validPeriod.md
 site_url: https://github.com/k-vaughn/ontology-its-time
 copyright: <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
   <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank"

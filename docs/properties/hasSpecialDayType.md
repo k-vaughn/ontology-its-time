@@ -8,6 +8,6 @@ The type of special day.
 
 | Class |
 |-------|
-| [SpecialDay](../../SpecialDay/) |
+| [SpecialDay](../classes/SpecialDay.md) |
 
 **IRI**: `https://w3id.org/itsdata/time/v1/hasSpecialDayType`

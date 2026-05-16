@@ -8,6 +8,6 @@ Specification of a applicable time period that starts on applicable days. If the
 
 | Class |
 |-------|
-| [Period](../../Period/) |
+| [Period](../classes/Period.md) |
 
 **IRI**: `https://w3id.org/itsdata/time/v1/hasRecurringTimePeriodOfDay`

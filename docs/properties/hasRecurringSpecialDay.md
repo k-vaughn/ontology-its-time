@@ -8,6 +8,6 @@ A recurring special day specified by a day type.
 
 | Class |
 |-------|
-| [Period](../../Period/) |
+| [Period](../classes/Period.md) |
 
 **IRI**: `https://w3id.org/itsdata/time/v1/hasRecurringSpecialDay`
