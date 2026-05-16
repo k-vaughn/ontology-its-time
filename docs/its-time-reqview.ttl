@@ -17,8 +17,8 @@
     dcterms:modified               "2026-04-15T13:59:32"^^xsd:dateTime .
 
 
-# FuzzyTime
-:FuzzyTime a owl:Class ;
+# FuzzyTimeInstant
+:FuzzyTimeInstant a owl:Class ;
     its-core:reqviewId "its-time-1" .
 
 # DayWeekMonth
@@ -85,6 +85,10 @@
 :FuzzyTimeCode a owl:Class ;
     its-core:reqviewId "its-time-17" .
 
+# FuzzyTimePeriod
+:FuzzyTimePeriod a owl:Class ;
+    its-core:reqviewId "its-time-38" .
+
 # SpecialDayTypeCode
 :SpecialDayTypeCode a owl:Class ;
     its-core:reqviewId "its-time-18" .
@@ -148,6 +152,10 @@
 # hasRecurringTimePeriodOfDay
 :hasRecurringTimePeriodOfDay a owl:ObjectProperty ;
     its-core:reqviewId "its-time-33" .
+
+# hasApplicableFuzzyTimePeriod
+:hasApplicableFuzzyTimePeriod a owl:ObjectProperty ;
+    its-core:reqviewId "its-time-39" .
 
 # hasSpecialDayType
 :hasSpecialDayType a owl:ObjectProperty ;

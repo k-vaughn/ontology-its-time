@@ -6,6 +6,6 @@
 
 | Class |
 |-------|
-| [FuzzyTime](../../FuzzyTime/) |
+| [FuzzyTimeInstant](../../FuzzyTimeInstant/) |
 
 **IRI**: `https://w3id.org/itsdata/time/v1/offset`
