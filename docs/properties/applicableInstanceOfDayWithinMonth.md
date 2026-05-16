@@ -8,6 +8,6 @@ Specifies an instance of a day within a month during which the InstanceOfDayWith
 
 | Class |
 |-------|
-| [InstanceOfDayWithinMonth](../../InstanceOfDayWithinMonth/) |
+| [InstanceOfDayWithinMonth](../classes/InstanceOfDayWithinMonth.md) |
 
 **IRI**: `https://w3id.org/itsdata/time/v1/applicableInstanceOfDayWithinMonth`

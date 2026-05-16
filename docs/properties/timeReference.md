@@ -6,6 +6,6 @@
 
 | Class |
 |-------|
-| [FuzzyTimeInstant](../../FuzzyTimeInstant/) |
+| [FuzzyTimeInstant](../classes/FuzzyTimeInstant.md) |
 
 **IRI**: `https://w3id.org/itsdata/time/v1/timeReference`

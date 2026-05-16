@@ -8,6 +8,6 @@ Time of day at which the recurring pattern ends.
 
 | Class |
 |-------|
-| [TimePeriodOfDay](../../TimePeriodOfDay/) |
+| [TimePeriodOfDay](../classes/TimePeriodOfDay.md) |
 
 **IRI**: `https://w3id.org/itsdata/time/v1/dailyEndTime`

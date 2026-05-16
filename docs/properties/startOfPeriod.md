@@ -8,6 +8,6 @@ The start time of the period.
 
 | Class |
 |-------|
-| [Period](../../Period/) |
+| [Period](../classes/Period.md) |
 
 **IRI**: `https://w3id.org/itsdata/time/v1/startOfPeriod`

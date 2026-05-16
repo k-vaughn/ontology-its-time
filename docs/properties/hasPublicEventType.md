@@ -8,6 +8,6 @@ Indication of the type of public event.
 
 | Class |
 |-------|
-| [SpecialDay](../../SpecialDay/) |
+| [SpecialDay](../classes/SpecialDay.md) |
 
 **IRI**: `https://w3id.org/itsdata/time/v1/hasPublicEventType`

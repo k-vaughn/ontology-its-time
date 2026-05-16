@@ -8,6 +8,6 @@ The end time of the overall period.
 
 | Class |
 |-------|
-| [OverallPeriod](../../OverallPeriod/) |
+| [OverallPeriod](../classes/OverallPeriod.md) |
 
 **IRI**: `https://w3id.org/itsdata/time/v1/overallEndTime`

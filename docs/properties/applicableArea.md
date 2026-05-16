@@ -8,6 +8,6 @@ Specifies an area associated with a SpecialDay.
 
 | Class |
 |-------|
-| [SpecialDay](../../SpecialDay/) |
+| [SpecialDay](../classes/SpecialDay.md) |
 
 **IRI**: `https://w3id.org/itsdata/time/v1/applicableArea`

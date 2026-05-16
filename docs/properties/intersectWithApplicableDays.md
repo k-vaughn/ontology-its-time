@@ -8,6 +8,6 @@ If true, the period is the intersection of the special day with applicable days.
 
 | Class |
 |-------|
-| [SpecialDay](../../SpecialDay/) |
+| [SpecialDay](../classes/SpecialDay.md) |
 
 **IRI**: `https://w3id.org/itsdata/time/v1/intersectWithApplicableDays`

@@ -26,7 +26,7 @@ PREFIX its-core: <https://w3id.org/itsdata/core/v1/>
     dcterms:modified               "2026-05-12"^^xsd:date;
     
     # Imports
-    owl:imports                    :Core .
+    owl:imports                    :CorePattern .
     # which includes the following cascade of imports:
     #   Core (its-time)
     #     CityPattern

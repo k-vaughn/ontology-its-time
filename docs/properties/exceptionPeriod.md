@@ -8,6 +8,6 @@ A period completely or partially within the overall period during which the sche
 
 | Class |
 |-------|
-| [OverallPeriod](../../OverallPeriod/) |
+| [OverallPeriod](../classes/OverallPeriod.md) |
 
 **IRI**: `https://w3id.org/itsdata/time/v1/exceptionPeriod`

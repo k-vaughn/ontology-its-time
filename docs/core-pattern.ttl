@@ -8,7 +8,7 @@ PREFIX vann: <http://purl.org/vocab/vann/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX its-core: <https://w3id.org/itsdata/core/v1/>
 
-:Core a owl:Ontology;
+:CorePattern a owl:Ontology;
     # Ontology metadata
     dcterms:title                  "Time Ontology for ITS - Core module"@en;
     skos:definition                "This ontology defines core concepts related to time within Intelligent Transportation Systems (ITS). This module is used to import the core concepts from the various Time Ontology for ITS patterns."@en;

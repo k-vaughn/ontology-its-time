@@ -25,11 +25,11 @@
 <g id="node2" class="node">
 <title>OverallPeriod</title>
 <g id="a_node2"><a xlink:href="../OverallPeriod" xlink:title="&lt;TABLE&gt;">
-<polygon fill="lightgray" stroke="none" points="8.62,-195.5 8.62,-211.75 203.38,-211.75 203.38,-195.5 8.62,-195.5"/>
+<polygon fill="lightgray" stroke="none" points="21.38,-195.5 21.38,-211.75 190.62,-211.75 190.62,-195.5 21.38,-195.5"/>
 <text xml:space="preserve" text-anchor="start" x="69.25" y="-199.5" font-family="Arial" font-size="12.00">OverallPeriod</text>
-<text xml:space="preserve" text-anchor="start" x="9.62" y="-183.25" font-family="Arial" font-size="12.00">overallEndTime : xsd:dateTime [0..1]</text>
-<text xml:space="preserve" text-anchor="start" x="9.62" y="-167" font-family="Arial" font-size="12.00">overallStartTime : xsd:dateTime [1]</text>
-<polygon fill="none" stroke="black" points="7.62,-162 7.62,-212.75 204.38,-212.75 204.38,-162 7.62,-162"/>
+<text xml:space="preserve" text-anchor="start" x="22.38" y="-183.25" font-family="Arial" font-size="12.00">overallEndTime : xsd:dateTime</text>
+<text xml:space="preserve" text-anchor="start" x="22.38" y="-167" font-family="Arial" font-size="12.00">overallStartTime : xsd:dateTime</text>
+<polygon fill="none" stroke="black" points="20.38,-162 20.38,-212.75 191.62,-212.75 191.62,-162 20.38,-162"/>
 </a>
 </g>
 </g>

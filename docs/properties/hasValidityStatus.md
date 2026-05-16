@@ -8,6 +8,6 @@ Specifies the validity status of the schedule's logic.
 
 | Class |
 |-------|
-| [Schedule](../../Schedule/) |
+| [Schedule](../classes/Schedule.md) |
 
 **IRI**: `https://w3id.org/itsdata/time/v1/hasValidityStatus`

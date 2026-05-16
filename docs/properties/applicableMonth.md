@@ -8,6 +8,6 @@ Specifies a month during which the DayWeekMonth object is applicable.
 
 | Class |
 |-------|
-| [DayWeekMonth](../../DayWeekMonth/) |
+| [DayWeekMonth](../classes/DayWeekMonth.md) |
 
 **IRI**: `https://w3id.org/itsdata/time/v1/applicableMonth`

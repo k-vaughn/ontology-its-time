@@ -8,6 +8,6 @@ A recurring period specified by the intersection of day-of-week, week, and month
 
 | Class |
 |-------|
-| [Period](../../Period/) |
+| [Period](../classes/Period.md) |
 
 **IRI**: `https://w3id.org/itsdata/time/v1/hasRecurringDayWeekMonthPeriod`
