@@ -50,9 +50,10 @@ PREFIX its-core: <https://w3id.org/itsdata/core/v1/>
         skos:definition     "A data property to organize all data properties defined in the Time Ontology."@en;
         rdfs:subPropertyOf  its-core:ITSDataProperty .
 
-# :approvedOn a owl:DatatypeProperty;
- #       skos:definition     "A data property to indicate the approval date of an object."@en;
- #       rdfs:subPropertyOf  :TimeDataProperty .
+:approvedOn a owl:DatatypeProperty;
+    skos:definition     "A data property to indicate the approval date of an object."@en;
+    rdfs:range          xsd:date ;
+    rdfs:subPropertyOf  :TimeDataProperty .
 
 #:hasDate a owl:DatatypeProperty;
 #        skos:definition     "A data property to indicate the date of an object."@en;
