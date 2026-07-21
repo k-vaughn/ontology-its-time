@@ -11,5 +11,11 @@ This pattern imports the following files:
 This pattern consists of the following classes:
 
 - [Time Thing](TimeThing.md)
+This module defines the following properties:
+
+- [approvedOn](../properties/approvedOn.md)
+- [TimeDataProperty](../properties/TimeDataProperty.md)
+- [TimeObjectProperty](../properties/TimeObjectProperty.md)
+
 
 The formal definition of this pattern is available in [TURTLE Syntax](../core-pattern.ttl).

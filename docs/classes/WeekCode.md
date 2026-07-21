@@ -79,7 +79,7 @@ EXAMPLE: week1, week2, week3, and week4
 | Property | Constraint |
 |----------|------------|
 | subClassOf | [ScheduleThing](ScheduleThing.md) |
-| subClassOf | [cdm2:Code](https://w3id.org/citydata/part2/v1/Code) |
+| subClassOf | [cdm2:Code](cdm2:Code.md) |
 
 ## Other annotations
 

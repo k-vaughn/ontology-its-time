@@ -7,7 +7,7 @@ digraph {
 		rank=source
 		ScheduleThing [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ScheduleThing</TD></TR></TABLE>> URL="../ScheduleThing" margin=0]
 	}
-	Schedule [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Schedule</TD></TR><TR><TD ALIGN="LEFT">isOverrunning : xsd:boolean</TD></TR></TABLE>> URL="../Schedule" margin=0]
+	Schedule [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Schedule</TD></TR><TR><TD ALIGN="LEFT">isOverrunning : xsd:boolean [0..1]</TD></TR></TABLE>> URL="../Schedule" margin=0]
 	{
 		rank=max
 	}
@@ -22,7 +22,7 @@ digraph {
 	Invis -> OverallPeriod [style=invis]
 	OverallPeriod -> ValidityStatusCode [style=invis]
 	OverallPeriod [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">OverallPeriod</TD></TR></TABLE>> URL="../OverallPeriod" margin=0]
-	Schedule -> OverallPeriod [label=validityTimeSpecification arrowhead=normal style=solid]
+	Schedule -> OverallPeriod [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">validityTimeSpecification</TD></TR><TR><TD ALIGN="CENTER">1</TD></TR></TABLE>> arrowhead=normal style=solid]
 	ValidityStatusCode [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ValidityStatusCode</TD></TR></TABLE>> URL="../ValidityStatusCode" margin=0]
-	Schedule -> ValidityStatusCode [label=hasValidityStatus arrowhead=normal style=solid]
+	Schedule -> ValidityStatusCode [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasValidityStatus</TD></TR><TR><TD ALIGN="CENTER">1</TD></TR></TABLE>> arrowhead=normal style=solid]
 }

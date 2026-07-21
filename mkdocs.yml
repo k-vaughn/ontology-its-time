@@ -9,6 +9,7 @@ nav:
   - Classes:
     - Time Thing: classes/TimeThing.md
   - Properties:
+    - approvedOn: properties/approvedOn.md
     - TimeDataProperty: properties/TimeDataProperty.md
     - TimeObjectProperty: properties/TimeObjectProperty.md
 - Fuzzy Time Pattern:
