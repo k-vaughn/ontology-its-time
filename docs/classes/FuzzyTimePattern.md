@@ -15,5 +15,10 @@ This pattern consists of the following classes:
 - [Fuzzy Time Instant Code](FuzzyTimeInstantCode.md)
 - [Fuzzy Time Period](FuzzyTimePeriod.md)
 - [Time Of Day](TimeOfDay.md)
+This module defines the following properties:
+
+- [offset](../properties/offset.md)
+- [timeReference](../properties/timeReference.md)
+
 
 The formal definition of this pattern is available in TURTLE Syntax in two files, the [core semantics](../fuzzy-time-pattern.ttl) and the SHACL [restrictions](../fuzzy-time-shacl.ttl).
