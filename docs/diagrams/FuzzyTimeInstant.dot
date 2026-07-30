@@ -7,7 +7,7 @@ digraph {
 		rank=source
 		TimeOfDay [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">TimeOfDay</TD></TR></TABLE>> URL="../TimeOfDay" margin=0]
 	}
-	FuzzyTimeInstant [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">FuzzyTimeInstant</TD></TR><TR><TD ALIGN="LEFT">offset : xsd:duration [1]</TD></TR><TR><TD ALIGN="LEFT">time:timeZone [0..1]</TD></TR><TR><TD ALIGN="LEFT">time:unitType [0..1]</TD></TR></TABLE>> URL="../FuzzyTimeInstant" margin=0]
+	FuzzyTimeInstant [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">FuzzyTimeInstant</TD></TR><TR><TD ALIGN="LEFT">offset : xsd:duration [1]</TD></TR></TABLE>> URL="../FuzzyTimeInstant" margin=0]
 	{
 		rank=max
 	}
@@ -15,10 +15,18 @@ digraph {
 		label="" style=invis
 		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
 		FuzzyTimeInstantCode [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">FuzzyTimeInstantCode</TD></TR></TABLE>> URL="../FuzzyTimeInstantCode" margin=0]
+		time_TemporalUnit [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:TemporalUnit</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/TemporalUnit" margin=0]
+		time_TimeZone [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:TimeZone</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/TimeZone" margin=0]
 	}
 	FuzzyTimeInstant -> TimeOfDay [arrowhead=onormal style=solid]
 	FuzzyTimeInstant -> Invis [style=invis]
 	Invis -> FuzzyTimeInstantCode [style=invis]
+	FuzzyTimeInstantCode -> time_TemporalUnit [style=invis]
+	time_TemporalUnit -> time_TimeZone [style=invis]
 	FuzzyTimeInstantCode [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">FuzzyTimeInstantCode</TD></TR></TABLE>> URL="../FuzzyTimeInstantCode" margin=0]
 	FuzzyTimeInstant -> FuzzyTimeInstantCode [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">timeReference</TD></TR><TR><TD ALIGN="CENTER">1</TD></TR></TABLE>> arrowhead=normal style=solid]
+	time_TimeZone [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:TimeZone</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/TimeZone" margin=0]
+	FuzzyTimeInstant -> time_TimeZone [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">time:timeZone</TD></TR><TR><TD ALIGN="CENTER">0..1</TD></TR></TABLE>> arrowhead=normal style=solid]
+	time_TemporalUnit [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:TemporalUnit</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/TemporalUnit" margin=0]
+	FuzzyTimeInstant -> time_TemporalUnit [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">time:unitType</TD></TR><TR><TD ALIGN="CENTER">0..1</TD></TR></TABLE>> arrowhead=normal style=solid]
 }

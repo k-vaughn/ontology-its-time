@@ -4,6 +4,10 @@
 
 The end time of the overall period.
 
+**Domain**: [OverallPeriod](../classes/OverallPeriod.md)
+
+**Range**: [xsd:dateTime](https://w3id.org/citydata/imported/xsd/dateTime)
+
 ## Used in classes
 
 | Class |

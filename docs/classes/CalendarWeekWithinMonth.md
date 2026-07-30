@@ -85,7 +85,7 @@ NOTE: Different codes can potentially have different definitions on whether part
 | Property | Constraint |
 |----------|------------|
 | [applicableWeek](../properties/applicableWeek.md) | min 1 and max 6 [WeekCode](https://w3id.org/itsdata/time/v1/WeekCode) |
-| [reverseInstance](../properties/reverseInstance.md) | datatype xsd:boolean |
+| [reverseInstance](../properties/reverseInstance.md) | max 1 xsd:boolean |
 | subClassOf | [ScheduleThing](ScheduleThing.md) |
 
 ## Other annotations

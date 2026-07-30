@@ -150,12 +150,12 @@ A single valid or invalid period, or a set of repeating periods.
 | Property | Constraint |
 |----------|------------|
 | [cdm1:hasName](https://w3id.org/citydata/part1/v1/hasName) | 0..* rdf:langString (one per language) |
-| [endOfPeriod](../properties/endOfPeriod.md) | datatype xsd:dateTime |
+| [endOfPeriod](../properties/endOfPeriod.md) | max 1 xsd:dateTime |
 | [hasApplicableFuzzyTimePeriod](../properties/hasApplicableFuzzyTimePeriod.md) | only [FuzzyTimePeriod](https://w3id.org/itsdata/time/v1/FuzzyTimePeriod) |
-| [hasRecurringDayWeekMonthPeriod](../properties/hasRecurringDayWeekMonthPeriod.md) | only [DayWeekMonth](https://w3id.org/itsdata/time/v1/DayWeekMonth) |
-| [hasRecurringSpecialDay](../properties/hasRecurringSpecialDay.md) | only [SpecialDay](https://w3id.org/itsdata/time/v1/SpecialDay) |
-| [hasRecurringTimePeriodOfDay](../properties/hasRecurringTimePeriodOfDay.md) | only [TimePeriodOfDay](https://w3id.org/itsdata/time/v1/TimePeriodOfDay) |
-| [startOfPeriod](../properties/startOfPeriod.md) | datatype xsd:dateTime |
+| [hasRecurringDayWeekMonthPeriod](../properties/hasRecurringDayWeekMonthPeriod.md) | max 1 [DayWeekMonth](https://w3id.org/itsdata/time/v1/DayWeekMonth) |
+| [hasRecurringSpecialDay](../properties/hasRecurringSpecialDay.md) | max 1 [SpecialDay](https://w3id.org/itsdata/time/v1/SpecialDay) |
+| [hasRecurringTimePeriodOfDay](../properties/hasRecurringTimePeriodOfDay.md) | max 1 [TimePeriodOfDay](https://w3id.org/itsdata/time/v1/TimePeriodOfDay) |
+| [startOfPeriod](../properties/startOfPeriod.md) | max 1 xsd:dateTime |
 | subClassOf | [ScheduleThing](ScheduleThing.md) |
 
 ## Other annotations

@@ -28,6 +28,7 @@ This pattern consists of the following classes:
 This module defines the following properties:
 
 - [applicableArea](../properties/applicableArea.md)
+- [applicableDayOfMonth](../properties/applicableDayOfMonth.md)
 - [applicableDayOfWeek](../properties/applicableDayOfWeek.md)
 - [applicableInstanceOfDayWithinMonth](../properties/applicableInstanceOfDayWithinMonth.md)
 - [applicableMonth](../properties/applicableMonth.md)

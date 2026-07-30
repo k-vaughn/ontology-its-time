@@ -77,5 +77,5 @@ A code identifying a named reference used by :FuzzyTimeInstant (e.g. `dawn`, `du
 | Property | Constraint |
 |----------|------------|
 | subClassOf | [TimeThing](TimeThing.md) |
-| subClassOf | [cdm2:Code](cdm2:Code.md) |
+| subClassOf | [cdm2:Code](https://w3id.org/citydata/part2/v1/Code) |
 

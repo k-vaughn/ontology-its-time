@@ -8,19 +8,35 @@ digraph {
 		time_GeneralDateTimeDescription [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:GeneralDateTimeDescription</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/GeneralDateTimeDescription" margin=0]
 		TimeOfDay [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">TimeOfDay</TD></TR></TABLE>> URL="../TimeOfDay" margin=0]
 	}
-	ClockTime [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ClockTime</TD></TR><TR><TD ALIGN="LEFT">time:day [0..0]</TD></TR><TR><TD ALIGN="LEFT">time:dayOfWeek [0..0]</TD></TR><TR><TD ALIGN="LEFT">time:dayOfYear [0..0]</TD></TR><TR><TD ALIGN="LEFT">time:hour [1]</TD></TR><TR><TD ALIGN="LEFT">time:minute [0..1]</TD></TR><TR><TD ALIGN="LEFT">time:month [0..0]</TD></TR><TR><TD ALIGN="LEFT">time:monthOfYear [0..0]</TD></TR><TR><TD ALIGN="LEFT">time:second [0..1]</TD></TR><TR><TD ALIGN="LEFT">time:timeZone [0..1]</TD></TR><TR><TD ALIGN="LEFT">time:unitType [0..1]</TD></TR><TR><TD ALIGN="LEFT">time:week [0..0]</TD></TR><TR><TD ALIGN="LEFT">time:year [0..0]</TD></TR></TABLE>> URL="../ClockTime" margin=0]
+	ClockTime [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ClockTime</TD></TR><TR><TD ALIGN="LEFT">time:day [0..0]</TD></TR><TR><TD ALIGN="LEFT">time:dayOfYear : xsd:nonNegativeInteger [0..0]</TD></TR><TR><TD ALIGN="LEFT">time:hour [1]</TD></TR><TR><TD ALIGN="LEFT">time:minute [0..1]</TD></TR><TR><TD ALIGN="LEFT">time:month [0..0]</TD></TR><TR><TD ALIGN="LEFT">time:second [0..1]</TD></TR><TR><TD ALIGN="LEFT">time:week : xsd:nonNegativeInteger [0..0]</TD></TR><TR><TD ALIGN="LEFT">time:year [0..0]</TD></TR></TABLE>> URL="../ClockTime" margin=0]
 	{
 		rank=max
 	}
 	subgraph cluster_associated {
 		label="" style=invis
 		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		time_DayOfWeek [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:DayOfWeek</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/DayOfWeek" margin=0]
+		time_MonthOfYear [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:MonthOfYear</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/MonthOfYear" margin=0]
+		time_TemporalUnit [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:TemporalUnit</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/TemporalUnit" margin=0]
+		time_TimeZone [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:TimeZone</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/TimeZone" margin=0]
 		time_UnitOfTime [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:UnitOfTime</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/UnitOfTime" margin=0]
 	}
 	ClockTime -> time_GeneralDateTimeDescription [arrowhead=onormal style=solid]
 	ClockTime -> TimeOfDay [arrowhead=onormal style=solid]
 	ClockTime -> Invis [style=invis]
-	Invis -> time_UnitOfTime [style=invis]
+	Invis -> time_DayOfWeek [style=invis]
+	time_DayOfWeek -> time_MonthOfYear [style=invis]
+	time_MonthOfYear -> time_TemporalUnit [style=invis]
+	time_TemporalUnit -> time_TimeZone [style=invis]
+	time_TimeZone -> time_UnitOfTime [style=invis]
 	time_UnitOfTime [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:UnitOfTime</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/UnitOfTime" margin=0]
 	ClockTime -> time_UnitOfTime [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">time:unitType</TD></TR></TABLE>> arrowhead=normal style=solid]
+	time_TimeZone [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:TimeZone</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/TimeZone" margin=0]
+	ClockTime -> time_TimeZone [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">time:timeZone</TD></TR><TR><TD ALIGN="CENTER">0..1</TD></TR></TABLE>> arrowhead=normal style=solid]
+	time_TemporalUnit [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:TemporalUnit</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/TemporalUnit" margin=0]
+	ClockTime -> time_TemporalUnit [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">time:unitType</TD></TR><TR><TD ALIGN="CENTER">0..1</TD></TR></TABLE>> arrowhead=normal style=solid]
+	time_DayOfWeek [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:DayOfWeek</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/DayOfWeek" margin=0]
+	ClockTime -> time_DayOfWeek [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">time:dayOfWeek</TD></TR><TR><TD ALIGN="CENTER">0..0</TD></TR></TABLE>> arrowhead=normal style=solid]
+	time_MonthOfYear [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">time:MonthOfYear</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/time/latest/MonthOfYear" margin=0]
+	ClockTime -> time_MonthOfYear [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">time:monthOfYear</TD></TR><TR><TD ALIGN="CENTER">0..0</TD></TR></TABLE>> arrowhead=normal style=solid]
 }

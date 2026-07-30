@@ -4,6 +4,10 @@
 
 Specifies a week within a month during which the CalendarWeekWithinMonth object is applicable.
 
+**Domain**: [CalendarWeekWithinMonth](../classes/CalendarWeekWithinMonth.md)
+
+**Range**: [WeekCode](../classes/WeekCode.md)
+
 ## Used in classes
 
 | Class |

@@ -4,6 +4,10 @@
 
 The end time of the period.
 
+**Domain**: [Period](../classes/Period.md)
+
+**Range**: [xsd:dateTime](https://w3id.org/citydata/imported/xsd/dateTime)
+
 ## Used in classes
 
 | Class |

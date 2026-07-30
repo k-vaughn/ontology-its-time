@@ -62,6 +62,12 @@ PREFIX its-core: <https://w3id.org/itsdata/core/v1/>
         schema:domainIncludes   :SpecialDay;
         schema:rangeIncludes              cdm2:NamedArea .
 
+:applicableDayOfMonth a owl:ObjectProperty;
+        rdfs:subPropertyOf      :ScheduleObjectProperty;
+        skos:definition         "Specifies a day of the month during which the DateWithinMonth object is applicable."@en;
+        schema:domainIncludes   :DateWithinMonth;
+        schema:rangeIncludes              xsd:integer .
+
 :applicableDayOfWeek a owl:ObjectProperty;
         rdfs:subPropertyOf      :ScheduleObjectProperty;
         skos:definition         "Specifies a day of the week during which the DayWeekMonth object is applicable."@en;

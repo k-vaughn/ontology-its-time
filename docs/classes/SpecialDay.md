@@ -128,10 +128,10 @@ Recurring periods based on special days, including public holidays.
 
 | Property | Constraint |
 |----------|------------|
-| [applicableArea](../properties/applicableArea.md) | only [cdm2:NamedArea](https://w3id.org/citydata/part2/v1/NamedArea) |
-| [hasPublicEventType](../properties/hasPublicEventType.md) | only [PublicEventCode](https://w3id.org/itsdata/time/v1/PublicEventCode) |
-| [hasSpecialDayType](../properties/hasSpecialDayType.md) | only [SpecialDayTypeCode](https://w3id.org/itsdata/time/v1/SpecialDayTypeCode) |
-| [intersectWithApplicableDays](../properties/intersectWithApplicableDays.md) | datatype xsd:boolean |
+| [applicableArea](../properties/applicableArea.md) | max 1 [cdm2:NamedArea](https://w3id.org/citydata/part2/v1/NamedArea) |
+| [hasPublicEventType](../properties/hasPublicEventType.md) | max 1 [PublicEventCode](https://w3id.org/itsdata/time/v1/PublicEventCode) |
+| [hasSpecialDayType](../properties/hasSpecialDayType.md) | exactly 1 [SpecialDayTypeCode](https://w3id.org/itsdata/time/v1/SpecialDayTypeCode) |
+| [intersectWithApplicableDays](../properties/intersectWithApplicableDays.md) | exactly 1 xsd:boolean |
 | subClassOf | [ScheduleThing](ScheduleThing.md) |
 
 ## Other annotations

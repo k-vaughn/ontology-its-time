@@ -4,6 +4,10 @@
 
 Indicates if the schedule is exceeding its expected duration.
 
+**Domain**: [Schedule](../classes/Schedule.md)
+
+**Range**: [xsd:boolean](https://w3id.org/citydata/imported/xsd/boolean)
+
 ## Used in classes
 
 | Class |

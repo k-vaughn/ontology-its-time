@@ -4,6 +4,10 @@
 
 Specifies the validity status of the schedule's logic.
 
+**Domain**: [Schedule](../classes/Schedule.md)
+
+**Range**: [ValidityStatusCode](../classes/ValidityStatusCode.md)
+
 ## Used in classes
 
 | Class |

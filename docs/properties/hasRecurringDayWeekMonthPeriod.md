@@ -4,6 +4,10 @@
 
 A recurring period specified by the intersection of day-of-week, week, and month parameters.
 
+**Domain**: [Period](../classes/Period.md)
+
+**Range**: [DayWeekMonth](../classes/DayWeekMonth.md)
+
 ## Used in classes
 
 | Class |

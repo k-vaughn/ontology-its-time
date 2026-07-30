@@ -102,9 +102,9 @@ The class defining the temporal validity of a situation element or its impact.
 
 | Property | Constraint |
 |----------|------------|
-| [hasValidityStatus](../properties/hasValidityStatus.md) | only [ValidityStatusCode](https://w3id.org/itsdata/time/v1/ValidityStatusCode) |
-| [isOverrunning](../properties/isOverrunning.md) | datatype xsd:boolean |
-| [validityTimeSpecification](../properties/validityTimeSpecification.md) | only [OverallPeriod](https://w3id.org/itsdata/time/v1/OverallPeriod) |
+| [hasValidityStatus](../properties/hasValidityStatus.md) | exactly 1 [ValidityStatusCode](https://w3id.org/itsdata/time/v1/ValidityStatusCode) |
+| [isOverrunning](../properties/isOverrunning.md) | max 1 xsd:boolean |
+| [validityTimeSpecification](../properties/validityTimeSpecification.md) | exactly 1 [OverallPeriod](https://w3id.org/itsdata/time/v1/OverallPeriod) |
 | subClassOf | [ScheduleThing](ScheduleThing.md) |
 
 ## Other annotations

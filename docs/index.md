@@ -4,6 +4,8 @@
 
 This ontology imports the concepts from the various Time Ontology for ITS patterns and bundles them into a single ontology.
 
+**License**: [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/)
+
 The The Time Ontology for ITS (bundle) consists of the following patterns:
 
 - [Core](classes/CorePattern.md)

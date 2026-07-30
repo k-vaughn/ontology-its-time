@@ -85,5 +85,5 @@ A class to organize all classes defined in the Time Ontology.
 
 | Property | Constraint |
 |----------|------------|
-| subClassOf | [its-core:ITSThing](its-core:ITSThing.md) |
+| subClassOf | [its-core:ITSThing](https://w3id.org/itsdata/core/v1/ITSThing) |
 

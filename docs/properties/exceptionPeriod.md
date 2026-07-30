@@ -4,6 +4,10 @@
 
 A period completely or partially within the overall period during which the schedule does not apply. An exceptionPeriod overrules any validPeriod definition.
 
+**Domain**: [OverallPeriod](../classes/OverallPeriod.md)
+
+**Range**: [Period](../classes/Period.md)
+
 ## Used in classes
 
 | Class |

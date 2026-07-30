@@ -81,10 +81,6 @@
 :OverallPeriod a owl:Class ;
     its-core:reqviewId "its-time-16" .
 
-# FuzzyTimeCode
-:FuzzyTimeCode a owl:Class ;
-    its-core:reqviewId "its-time-17" .
-
 # FuzzyTimePeriod
 :FuzzyTimePeriod a owl:Class ;
     its-core:reqviewId "its-time-38" .

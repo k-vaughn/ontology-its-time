@@ -4,6 +4,10 @@
 
 If true, the period is the intersection of the special day with applicable days. If false, the period is the union of the special day with applicable days.
 
+**Domain**: [SpecialDay](../classes/SpecialDay.md)
+
+**Range**: [xsd:boolean](https://w3id.org/citydata/imported/xsd/boolean)
+
 ## Used in classes
 
 | Class |
