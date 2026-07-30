@@ -4,6 +4,10 @@
 
 The overall container of rules that define the periods when the scheduling logic evaluates to true.
 
+**Domain**: [Schedule](../classes/Schedule.md)
+
+**Range**: [OverallPeriod](../classes/OverallPeriod.md)
+
 ## Used in classes
 
 | Class |

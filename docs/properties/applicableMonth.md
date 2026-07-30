@@ -4,6 +4,10 @@
 
 Specifies a month during which the DayWeekMonth object is applicable.
 
+**Domain**: [DayWeekMonth](../classes/DayWeekMonth.md)
+
+**Range**: [time:MonthOfYear](https://w3id.org/citydata/imported/time/MonthOfYear)
+
 ## Used in classes
 
 | Class |

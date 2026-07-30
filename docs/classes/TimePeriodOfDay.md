@@ -90,8 +90,8 @@ Recurring periods within a single day using start and end times.
 
 | Property | Constraint |
 |----------|------------|
-| [dailyEndTime](../properties/dailyEndTime.md) | only [TimeOfDay](https://w3id.org/itsdata/time/v1/TimeOfDay) |
-| [dailyStartTime](../properties/dailyStartTime.md) | only [TimeOfDay](https://w3id.org/itsdata/time/v1/TimeOfDay) |
+| [dailyEndTime](../properties/dailyEndTime.md) | exactly 1 [TimeOfDay](https://w3id.org/itsdata/time/v1/TimeOfDay) |
+| [dailyStartTime](../properties/dailyStartTime.md) | exactly 1 [TimeOfDay](https://w3id.org/itsdata/time/v1/TimeOfDay) |
 | subClassOf | [ScheduleThing](ScheduleThing.md) |
 
 ## Other annotations

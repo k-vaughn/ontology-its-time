@@ -4,6 +4,10 @@
 
 Specification of a applicable time period that starts on applicable days. If the time period spans midnight (i.e. the end time is earlier than the start time), the applicability of the period will extend to the end time on the following day, even if that day is not normally applicable.
 
+**Domain**: [Period](../classes/Period.md)
+
+**Range**: [TimePeriodOfDay](../classes/TimePeriodOfDay.md)
+
 ## Used in classes
 
 | Class |

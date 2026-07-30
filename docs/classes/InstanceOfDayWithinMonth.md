@@ -63,7 +63,7 @@ Recurring periods by the nth occurrence of a weekday in a month.
 | Property | Constraint |
 |----------|------------|
 | [applicableInstanceOfDayWithinMonth](../properties/applicableInstanceOfDayWithinMonth.md) | min 1 xsd:nonNegativeInteger; max 5 xsd:nonNegativeInteger |
-| [reverseInstance](../properties/reverseInstance.md) | datatype xsd:boolean |
+| [reverseInstance](../properties/reverseInstance.md) | max 1 xsd:boolean |
 | subClassOf | [DayWeekMonth](DayWeekMonth.md) |
 
 ## Other annotations

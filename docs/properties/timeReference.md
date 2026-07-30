@@ -2,6 +2,10 @@
 
 # timeReference
 
+**Domain**: [FuzzyTimeInstant](../classes/FuzzyTimeInstant.md)
+
+**Range**: [FuzzyTimeInstantCode](../classes/FuzzyTimeInstantCode.md)
+
 ## Used in classes
 
 | Class |

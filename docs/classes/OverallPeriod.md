@@ -91,8 +91,8 @@ The bounding start and end times of the validity period.
 | Property | Constraint |
 |----------|------------|
 | [exceptionPeriod](../properties/exceptionPeriod.md) | only [Period](https://w3id.org/itsdata/time/v1/Period) |
-| [overallEndTime](../properties/overallEndTime.md) | datatype xsd:dateTime |
-| [overallStartTime](../properties/overallStartTime.md) | datatype xsd:dateTime |
+| [overallEndTime](../properties/overallEndTime.md) | max 1 xsd:dateTime |
+| [overallStartTime](../properties/overallStartTime.md) | exactly 1 xsd:dateTime |
 | [validPeriod](../properties/validPeriod.md) | only [Period](https://w3id.org/itsdata/time/v1/Period) |
 | subClassOf | [ScheduleThing](ScheduleThing.md) |
 

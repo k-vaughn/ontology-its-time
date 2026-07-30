@@ -4,6 +4,10 @@
 
 Specifies an instance of a day within a month during which the InstanceOfDayWithinMonth object is applicable.
 
+**Domain**: [InstanceOfDayWithinMonth](../classes/InstanceOfDayWithinMonth.md)
+
+**Range**: [xsd:nonNegativeInteger](https://w3id.org/citydata/imported/xsd/nonNegativeInteger)
+
 ## Used in classes
 
 | Class |

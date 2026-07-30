@@ -4,6 +4,10 @@
 
 Specifies a day of the week during which the DayWeekMonth object is applicable.
 
+**Domain**: [DayWeekMonth](../classes/DayWeekMonth.md)
+
+**Range**: [time:DayOfWeek](https://w3id.org/citydata/imported/time/DayOfWeek)
+
 ## Used in classes
 
 | Class |

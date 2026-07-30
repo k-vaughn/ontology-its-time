@@ -1,14 +1,17 @@
 {
     "cSpell.words": [
-        "BSMD",
-        "BSME",
         "citydata",
         "DATEX",
         "Graphviz",
         "itsdata",
+        "METR",
         "Micromobility",
+        "PROV",
         "reqview",
         "SHACL",
+        "SPARQL",
+        "TMDD",
+        "Transmodel",
         "Travelled"
     ]
 }

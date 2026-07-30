@@ -4,6 +4,10 @@
 
 Time of day at which the recurring pattern ends.
 
+**Domain**: [TimePeriodOfDay](../classes/TimePeriodOfDay.md)
+
+**Range**: [TimeOfDay](../classes/TimeOfDay.md)
+
 ## Used in classes
 
 | Class |

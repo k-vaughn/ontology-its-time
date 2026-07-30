@@ -4,6 +4,10 @@
 
 The type of special day.
 
+**Domain**: [Period](../classes/Period.md)
+
+**Range**: [SpecialDayTypeCode](../classes/SpecialDayTypeCode.md)
+
 ## Used in classes
 
 | Class |

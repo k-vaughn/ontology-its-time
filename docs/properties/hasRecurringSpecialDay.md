@@ -4,6 +4,10 @@
 
 A recurring special day specified by a day type.
 
+**Domain**: [Period](../classes/Period.md)
+
+**Range**: [SpecialDay](../classes/SpecialDay.md)
+
 ## Used in classes
 
 | Class |

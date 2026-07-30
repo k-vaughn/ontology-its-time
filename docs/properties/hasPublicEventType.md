@@ -4,6 +4,10 @@
 
 Indication of the type of public event.
 
+**Domain**: [SpecialDay](../classes/SpecialDay.md)
+
+**Range**: [PublicEventCode](../classes/PublicEventCode.md)
+
 ## Used in classes
 
 | Class |

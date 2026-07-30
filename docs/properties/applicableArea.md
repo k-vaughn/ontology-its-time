@@ -4,6 +4,10 @@
 
 Specifies an area associated with a SpecialDay.
 
+**Domain**: [SpecialDay](../classes/SpecialDay.md)
+
+**Range**: [cdm2:NamedArea](https://w3id.org/citydata/part2/v1/NamedArea)
+
 ## Used in classes
 
 | Class |
